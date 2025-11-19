@@ -15,7 +15,7 @@ export default function Header() {
         
         {/* Nama / Logo */}
         <Link href="/" className="text-2xl font-bold tracking-tight text-gray-900 hover:text-red-600 transition-colors">
-          Rinaldi Ruslan
+          Portofolio Web
         </Link>
 
         {/* Navigasi Desktop */}
