@@ -1,7 +1,9 @@
-// Pastikan Anda membuat folder 'components' dan memindahkan file Header.tsx dan HeroSection.tsx ke sana.
-import Header from '@/components/Header';
-import HeroSection from '@/components/HeroSection';
-// Anda akan menambahkan komponen lain di sini nanti: About, Skills, Projects, Contact
+// src/app/page.tsx
+// Perhatikan: Kita menggunakan '../' bukan '@/' untuk memastikan file ditemukan
+import Header from '../components/Header';
+import HeroSection from '../components/HeroSection';
+import AboutSection from '../components/AboutSection';
+import SkillsSection from '../components/SkillsSection';
 
 export default function Home() {
   return (
@@ -9,16 +11,9 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-
-        {/* Bagian Lain Akan Ditambahkan Di Sini */}
-        
-        {/* <AboutSection /> */}
-        {/* <SkillsSection /> */}
-        {/* <ProjectsSection /> */}
-        {/* <ContactSection /> */}
-
+        <AboutSection />
+        <SkillsSection />
       </main>
-      {/* <Footer /> */}
     </>
   );
 }
