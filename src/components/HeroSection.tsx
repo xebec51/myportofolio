@@ -128,13 +128,13 @@ export default function HeroSection() {
                     </div>
 
                     {/* === KOLOM KANAN: GAMBAR PROFIL & ORBIT === */}
-                    <div className="w-full flex justify-center lg:justify-end relative order-1 lg:order-2">
+                    <div className="w-full flex justify-center lg:justify-end relative order-1 lg:order-2 -mt-6 lg:-mt-14">
                         
                         {/* Container Relatif (Orbit Area) */}
                         <div className="relative w-[300px] h-[300px] sm:w-[350px] sm:h-[350px] lg:w-[420px] lg:h-[420px] flex items-center justify-center">
                             
                             {/* Floating Profile Image */}
-                            <div className="relative w-[240px] h-[240px] sm:w-[280px] sm:h-[280px] lg:w-[340px] lg:h-[340px] rounded-full overflow-hidden border-4 border-white shadow-2xl z-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-3xl cursor-pointer">
+                            <div className="relative w-60 h-60 sm:w-[280px] sm:h-[280px] lg:w-[340px] lg:h-[340px] rounded-full overflow-hidden border-4 border-white shadow-2xl z-10 transition-all duration-300 hover:-translate-y-2 hover:shadow-3xl cursor-pointer">
                                 <Image 
                                     src="/profile.jpg" 
                                     alt="Naldi - Software Developer & ML Engineer" 
