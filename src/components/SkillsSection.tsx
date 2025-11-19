@@ -1,30 +1,23 @@
 import React from 'react';
 
-// Data keahlian diambil dari CV Anda
-const technicalSkills = [
-  { name: 'JavaScript', icon: '⚡' },
-  { name: 'Python', icon: '🐍' },
+// Kategori Software Development
+const devSkills = [
+  { name: 'JavaScript (ES6+)', icon: '⚡' },
+  { name: 'Next.js / React', icon: '⚛️' },
   { name: 'Java', icon: '☕' },
-  { name: 'SQL', icon: '🔍' },
-  { name: 'Front-End Development', icon: '🌐' },
-  { name: 'Back-End Development', icon: '⚙️' },
-  { name: 'Data Science', icon: '📊' },
-  { name: 'Machine Learning', icon: '🧠' },
-  { name: 'Big Data', icon: '☁️' },
-  { name: 'Figma', icon: '🎨' },
-  { name: 'Cloud Essentials (AWS)', icon: '☁️' },
-  // Swift dan Mobile Development
-  { name: 'Swift (Basic)', icon: '📱' },
-  { name: 'Android Studio', icon: '🤖' },
+  { name: 'Front-End Expert', icon: '🎨' },
+  { name: 'Back-End Basic', icon: '⚙️' },
+  { name: 'Android Studio', icon: '📱' },
 ];
 
-const interpersonalSkills = [
-  { name: 'Leadership & Mentoring', icon: '👑' },
-  { name: 'Project & Event Management', icon: '📅' },
-  { name: 'Communication & Public Speaking', icon: '🎤' },
-  { name: 'Teamwork & Collaboration', icon: '🤝' },
-  { name: 'Time Management', icon: '⏱️' },
-  { name: 'Emotional Intelligence', icon: '🧘' },
+// Kategori Data & Machine Learning
+const dataSkills = [
+  { name: 'Python', icon: '🐍' },
+  { name: 'Machine Learning', icon: '🧠' },
+  { name: 'Data Science', icon: '📊' },
+  { name: 'SQL', icon: 'wq' },
+  { name: 'Data Visualization', icon: '📈' },
+  { name: 'Big Data Concepts', icon: '☁️' },
 ];
 
 const SkillItem = ({ name, icon }: { name: string, icon: string }) => (
@@ -41,33 +34,35 @@ export default function SkillsSection() {
         <div className="container mx-auto px-6">
             
             <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">
-                Keahlian & Kompetensi
+                Arsenala Teknologi
             </h2>
-            <p className="text-lg text-gray-600 text-center mb-16">
-                Kombinasi antara kemahiran teknis (Hard Skills) dan kemampuan kepemimpinan (Soft Skills).
+            <p className="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+                Daftar teknologi dan alat yang saya kuasai untuk membangun perangkat lunak handal dan model cerdas.
             </p>
 
-            {/* Bagian Technical Skills */}
-            <div className="mb-16">
-                <h3 className="text-3xl font-bold text-red-600 mb-8 border-b-2 border-red-200 pb-2">
-                    Keahlian Teknis (Hard Skills)
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {technicalSkills.map((skill, index) => (
-                        <SkillItem key={index} name={skill.name} icon={skill.icon} />
-                    ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                {/* Kolom 1: Software Development */}
+                <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-red-600 pl-4">
+                        Software Development
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {devSkills.map((skill, index) => (
+                            <SkillItem key={index} name={skill.name} icon={skill.icon} />
+                        ))}
+                    </div>
                 </div>
-            </div>
 
-            {/* Bagian Interpersonal Skills */}
-            <div>
-                <h3 className="text-3xl font-bold text-red-600 mb-8 border-b-2 border-red-200 pb-2">
-                    Keahlian Interpersonal (Soft Skills)
-                </h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                    {interpersonalSkills.map((skill, index) => (
-                        <SkillItem key={index} name={skill.name} icon={skill.icon} />
-                    ))}
+                {/* Kolom 2: Data & AI */}
+                <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-8 border-l-4 border-red-600 pl-4">
+                        Data Science & AI
+                    </h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        {dataSkills.map((skill, index) => (
+                            <SkillItem key={index} name={skill.name} icon={skill.icon} />
+                        ))}
+                    </div>
                 </div>
             </div>
         </div>
