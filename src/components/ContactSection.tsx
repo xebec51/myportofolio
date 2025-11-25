@@ -105,7 +105,7 @@ export default function ContactSection() {
                 {/* Download CV Button */}
                 <div className="inline-block">
                     <Link 
-                        href="/Curriculum_Vitae_Muh.Rinaldi_Ruslan.pdf" 
+                        href="https://drive.google.com/drive/folders/1U8OA0Uu7SSkEpVxT7XqblTkqHinpuBAM?usp=sharing" 
                         target="_blank"
                         rel="noopener noreferrer"
                         className="group flex items-center gap-3 px-8 py-4 text-lg font-bold text-white bg-gray-900 rounded-xl hover:bg-red-600 transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-1"
