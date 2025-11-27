@@ -6,6 +6,7 @@ import SkillsSection from '../components/SkillsSection';
 import ProjectsSection from '../components/ProjectsSection';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer'; // <-- Import komponen baru
+import CertificationsSection from '../components/CertificationsSection';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <HeroSection />
         <AboutSection />
         <SkillsSection />
+        <CertificationsSection />
         <ProjectsSection />
         <ContactSection />
       </main>
