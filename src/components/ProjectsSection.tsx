@@ -33,8 +33,12 @@ const projects = [
     }
 ];
 
-const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
-    <div className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500 overflow-hidden border border-gray-100 p-6 flex flex-col h-full">
+const ProjectCard = ({ project, index }: { project: typeof projects[0], index: number }) => (
+    <div 
+        className="bg-white rounded-xl shadow-lg hover:shadow-2xl transition duration-500 overflow-hidden border border-gray-100 p-6 flex flex-col h-full"
+        data-aos="fade-up"
+        data-aos-delay={index * 150} // Animasi muncul berurutan (Staggered)
+    >
         <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
         
         {/* Deskripsi */}
@@ -42,8 +46,8 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
         
         {/* Tech Stack Tags */}
         <div className="flex flex-wrap gap-2 mb-6 mt-auto">
-            {project.techStack.map((tech, index) => (
-                <span key={index} className="px-3 py-1 text-xs font-medium text-red-700 bg-red-100 rounded-full">
+            {project.techStack.map((tech, idx) => (
+                <span key={idx} className="px-3 py-1 text-xs font-medium text-red-700 bg-red-100 rounded-full">
                     {tech}
                 </span>
             ))}
@@ -86,22 +90,33 @@ export default function ProjectsSection() {
         <section id="projects" className="py-20 md:py-32 bg-white">
             <div className="container mx-auto px-6">
                 
-                <h2 className="text-4xl font-extrabold text-gray-900 text-center mb-4">
+                <h2 
+                    className="text-4xl font-extrabold text-gray-900 text-center mb-4"
+                    data-aos="fade-down"
+                >
                     Proyek Pilihan 
                 </h2>
-                <p className="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+                <p 
+                    className="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto"
+                    data-aos="fade-up"
+                    data-aos-delay="100"
+                >
                     Kumpulan proyek terbaik yang menunjukkan keahlian Front-End, Data Science, dan Back-End Anda.
                 </p>
 
                 {/* Grid Proyek */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
                     {projects.map((project, index) => (
-                        <ProjectCard key={index} project={project} />
+                        <ProjectCard key={index} project={project} index={index} />
                     ))}
                 </div>
                 
                 {/* CTA Tambahan */}
-                <div className="text-center mt-16">
+                <div 
+                    className="text-center mt-16"
+                    data-aos="zoom-in"
+                    data-aos-delay="200"
+                >
                     <Link 
                         href="https://github.com/xebec51?tab=repositories"
                         target="_blank"
