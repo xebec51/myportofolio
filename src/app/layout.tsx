@@ -2,6 +2,7 @@ import React from "react";
 import type { Metadata } from "next";
 import "./globals.css";
 import AOSInit from "../components/AOSInit";
+import Preloader from "../components/Preloader";
 
 export const metadata: Metadata = {
   title: "Portofolio Muh. Rinaldi Ruslan",
@@ -16,6 +17,7 @@ export default function RootLayout({
   return (
     <html lang="id">
       <body className="antialiased">
+        <Preloader />
         <AOSInit />
         {children}
       </body>

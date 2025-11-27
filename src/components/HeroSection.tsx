@@ -2,16 +2,16 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export default function HeroSection() {
     // --- LOGIKA TYPEWRITER EFFECT ---
-    const [text, setText] = useState('');
-    const [isDeleting, setIsDeleting] = useState(false);
-    const [loopNum, setLoopNum] = useState(0);
-    const [typingSpeed, setTypingSpeed] = useState(150);
-
-    const phrases = ["Software Developer", "Machine Learning Engineer"];
+        const [text, setText] = useState('');
+        const [isDeleting, setIsDeleting] = useState(false);
+        const [loopNum, setLoopNum] = useState(0);
+        const [typingSpeed, setTypingSpeed] = useState(150);
+    
+        const phrases = useMemo(() => ["Software Developer", "Machine Learning Engineer"], []);
 
     useEffect(() => {
         const handleType = () => {

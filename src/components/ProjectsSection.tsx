@@ -42,7 +42,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
         <h3 className="text-2xl font-bold text-gray-900 mb-3">{project.title}</h3>
         
         {/* Deskripsi */}
-        <p className="text-gray-600 mb-4 flex-grow">{project.description}</p>
+        <p className="text-gray-600 mb-4 grow">{project.description}</p>
         
         {/* Tech Stack Tags */}
         <div className="flex flex-wrap gap-2 mb-6 mt-auto">
