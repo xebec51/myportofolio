@@ -1,88 +1,63 @@
 import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 export default function AboutSection() {
     return (
         <section id="about" className="py-20 md:py-32 bg-white overflow-hidden">
             <div className="container mx-auto px-6">
                 
-                {/* Judul Bagian dengan Animasi Fade-Down */}
-                <h2 
-                    className="text-4xl font-extrabold text-gray-900 text-center mb-16"
-                    data-aos="fade-down"
-                    data-aos-duration="1000"
-                >
-                    Tentang Saya
-                </h2>
-
-                <div className="flex flex-col md:flex-row gap-12 items-center">
+                <div className="flex flex-col md:flex-row items-center gap-12 lg:gap-20">
                     
-                    {/* Kolom Kiri: Ringkasan Diri */}
+                    {/* Kolom Kiri: Foto Profil Asli (Bukan Anime) */}
                     <div 
-                        className="md:w-7/12"
+                        className="md:w-5/12 w-full flex justify-center"
                         data-aos="fade-right" 
                         data-aos-delay="200"
                     >
-                        <h3 className="text-3xl font-bold text-red-600 mb-6">
-                            Code. Data. Innovation.
-                        </h3>
-                        
-                        <p className="text-gray-700 text-lg mb-4 leading-relaxed text-justify">
-                            Saya adalah mahasiswa Sistem Informasi di Universitas Hasanuddin dengan passion mendalam di dunia rekayasa perangkat lunak dan kecerdasan buatan. Saya tidak hanya menulis kode, tetapi membangun solusi yang efisien.
-                        </p>
-                        
-                        <p className="text-gray-700 text-lg leading-relaxed text-justify">
-                            Keahlian saya mencakup pembangunan aplikasi web modern (**Full-Stack Development**) dan analisis data prediktif (**Machine Learning**). Dengan latar belakang matematika yang kuat dan sertifikasi teknis tingkat Expert, saya siap mengubah data mentah menjadi wawasan dan ide menjadi aplikasi fungsional.
-                        </p>
+                        <div className="relative w-[280px] h-[350px] sm:w-[320px] sm:h-[400px] rounded-2xl overflow-hidden shadow-2xl group border-4 border-gray-100">
+                            {/* Pastikan file profile1.jpg ada di folder public */}
+                            <Image 
+                                src="/profile1.jpg" 
+                                alt="Muh. Rinaldi Ruslan" 
+                                fill
+                                className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                            {/* Overlay Halus */}
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
+                        </div>
                     </div>
 
-                    {/* Kolom Kanan: Highlight Pencapaian Teknis */}
+                    {/* Kolom Kanan: Deskripsi Singkat & Tombol */}
                     <div 
-                        className="md:w-5/12 w-full bg-gray-50 p-8 rounded-2xl shadow-xl border border-gray-100 hover:shadow-2xl transition-shadow duration-300"
+                        className="md:w-7/12 text-center md:text-left"
                         data-aos="fade-left" 
                         data-aos-delay="400"
                     >
-                        <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center md:text-left">
-                            Kualifikasi Teknis
+                        <h2 className="text-sm font-bold text-red-600 tracking-widest uppercase mb-3">
+                            Tentang Saya
+                        </h2>
+                        <h3 className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+                            Mengkombinasikan Logika Data dengan Kreativitas Desain.
                         </h3>
                         
-                        <div className="space-y-8">
-                            {/* Poin 1: Web Dev */}
-                            <div className="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="500">
-                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-2xl shrink-0">
-                                    💻
-                                </div>
-                                <div>
-                                    <p className="text-xl font-extrabold text-gray-900">Expert</p>
-                                    <p className="text-gray-600 font-medium text-sm uppercase tracking-wide">Web Development</p>
-                                    <p className="text-sm text-gray-500 mt-1">Certified Front-End Web Developer Expert (Dicoding)</p>
-                                </div>
-                            </div>
-                            
-                            {/* Poin 2: Machine Learning */}
-                            <div className="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="600">
-                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-2xl shrink-0">
-                                    🤖
-                                </div>
-                                <div>
-                                    <p className="text-xl font-extrabold text-gray-900">Machine Learning</p>
-                                    <p className="text-gray-600 font-medium text-sm uppercase tracking-wide">Data Science</p>
-                                    <p className="text-sm text-gray-500 mt-1">Tersertifikasi dalam Machine Learning & Data Visualization</p>
-                                </div>
-                            </div>
-                            
-                            {/* Poin 3: Academic */}
-                            <div className="flex items-start space-x-4" data-aos="fade-up" data-aos-delay="700">
-                                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm text-2xl shrink-0">
-                                    🎓
-                                </div>
-                                <div>
-                                    <p className="text-xl font-extrabold text-gray-900">3.89 GPA</p>
-                                    <p className="text-gray-600 font-medium text-sm uppercase tracking-wide">Sistem Informasi</p>
-                                    <p className="text-sm text-gray-500 mt-1">Universitas Hasanuddin (Information System S1)</p>
-                                </div>
-                            </div>
-                        </div>
+                        <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                            Saya adalah mahasiswa Sistem Informasi yang berfokus pada pengembangan web modern dan kecerdasan buatan. Saya percaya bahwa teknologi terbaik adalah yang tidak hanya canggih, tetapi juga bermanfaat dan mudah digunakan.
+                        </p>
+
+                        <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Di luar koding, saya aktif sebagai mentor dan terus mengeksplorasi tren teknologi terbaru untuk menciptakan solusi digital yang relevan.
+                        </p>
+
+                        <Link 
+                            href="/profile" 
+                            className="inline-flex items-center px-8 py-3 text-base font-bold text-white bg-gray-900 rounded-lg hover:bg-red-600 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 group"
+                        >
+                            Lihat Profil Lengkap
+                            <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                        </Link>
                     </div>
+
                 </div>
             </div>
         </section>
