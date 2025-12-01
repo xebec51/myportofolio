@@ -36,10 +36,10 @@ const SkillCard = ({ name, icon, delay }: { name: string, icon: string, delay: n
         data-aos-delay={delay}
     >
         {/* Dekorasi Background Hover (Glow halus) */}
-        <div className="absolute inset-0 bg-gradient-to-r from-red-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
+        <div className="absolute inset-0 bg-linear-to-r from-red-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
 
         {/* Icon Wrapper */}
-        <div className="relative z-10 flex-shrink-0 w-12 h-12 flex items-center justify-center bg-gray-50 rounded-xl text-2xl group-hover:scale-110 group-hover:bg-white transition-transform duration-300 shadow-sm">
+        <div className="relative z-10 shrink-0 w-12 h-12 flex items-center justify-center bg-gray-50 rounded-xl text-2xl group-hover:scale-110 group-hover:bg-white transition-transform duration-300 shadow-sm">
             {icon}
         </div>
 
@@ -56,7 +56,7 @@ export default function SkillsSection() {
   return (
     <section id="skills" className="py-24 relative bg-white overflow-hidden">
         {/* Background Decoration (Optional: titik-titik halus) */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:16px_16px]" />
+        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[16px_16px]" />
 
         <div className="container mx-auto px-6 relative z-10">
             
