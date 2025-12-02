@@ -63,21 +63,21 @@ export default function SkillsSection() {
             {/* Section Header */}
             <div className="text-center mb-20">
                 <span className="text-red-600 font-semibold tracking-wider uppercase text-sm mb-2 block" data-aos="fade-up">
-                    Tech Stack
+                    My Arsenal
                 </span>
                 <h2 
                     className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight"
                     data-aos="fade-down"
                     data-aos-delay="100"
                 >
-                    Arsenala Teknologi
+                    Tech Stack & Tools
                 </h2>
                 <p 
                     className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
                     data-aos="fade-up"
                     data-aos-delay="200"
                 >
-                    Kombinasi alat pengembangan modern dan kecerdasan buatan yang saya gunakan untuk menciptakan solusi digital yang skalabel.
+                    A curated list of technologies I use to build performant web applications and robust AI models.
                 </p>
             </div>
 

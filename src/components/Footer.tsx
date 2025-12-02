@@ -31,11 +31,11 @@ const socialLinks = [
 ];
 
 const footerLinks = [
-    { name: 'Beranda', href: '#home' },
-    { name: 'Tentang', href: '#about' },
-    { name: 'Keahlian', href: '#skills' },
-    { name: 'Proyek', href: '#projects' },
-    { name: 'Kontak', href: '#contact' },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Tech Stack', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' },
 ];
 
 export default function Footer() {

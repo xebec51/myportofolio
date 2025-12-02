@@ -115,7 +115,7 @@ export default function HeroSection() {
                             variants={fadeUpVariants}
                             className="text-gray-600 text-sm sm:text-base lg:text-lg mb-8 max-w-xl leading-relaxed px-4 lg:px-0"
                         >
-                            Membangun aplikasi web modern yang responsif dan mengembangkan model Machine Learning cerdas untuk solusi bisnis yang inovatif.
+                            Crafting robust web applications and intelligent ML models. I turn complex problems into elegant, scalable solutions that drive business innovation.
                         </motion.p>
 
                         {/* Social Links */}

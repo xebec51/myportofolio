@@ -5,28 +5,28 @@ import React from 'react';
 const projects = [
     {
         title: "EatoSphere: Global Restaurant Catalog",
-        description: "Aplikasi web progresif (PWA) untuk menjelajahi katalog restoran global. Menggunakan arsitektur Front-End murni yang berfokus pada kecepatan dan performa offline.",
+        description: "A Progressive Web App (PWA) designed for exploring global restaurant catalogs. Built with a focus on offline-first performance and responsive UI.",
         techStack: ["Front-End Dev", "JavaScript", "Webpack", "PWA", "API REST"],
         githubLink: "https://github.com/xebec51/EatoSphere-GlobalRestaurantsCatalog.git",
         liveDemoLink: "#" // Tambahkan link demo jika ada
     },
     {
         title: "GestureLearn: Real-time Hand Gesture Recognition",
-        description: "Model Machine Learning (ML) berbasis Python untuk mendeteksi dan menginterpretasi gerakan tangan secara langsung. Proyek ini menunjukkan keahlian di bidang Data & AI.",
+        description: "A Python-based Machine Learning (ML) model for real-time hand gesture detection and interpretation. Demonstrating expertise in Data & AI.",
         techStack: ["Python", "Machine Learning", "OpenCV", "Data Science"],
         githubLink: "https://github.com/xebec51/GestureLearn.git",
         liveDemoLink: "#"
     },
     {
         title: "KanHas: Kanban Board Management",
-        description: "Aplikasi manajemen tugas bergaya Kanban untuk efisiensi tim dan individu, menerapkan konsep Back-End Service dan modern Front-End framework.",
+        description: "A Kanban-style task management application for team and individual efficiency, implementing Back-End Service concepts and modern Front-End frameworks.",
         techStack: ["React/Next.js", "Back-End Dev", "Node.js/Express", "MongoDB"],
         githubLink: "https://github.com/xebec51/KanHas.git",
         liveDemoLink: "#"
     },
     {
-        title: "Sistem Manajemen Inventaris (Java)",
-        description: "Proyek sistem manajemen aset dasar yang dibangun menggunakan Java dan database SQL, menunjukkan pemahaman dalam OOP dan Back-End tradisional.",
+        title: "Inventory Management System (Java)",
+        description: "A basic asset management system project built using Java and SQL database, demonstrating understanding of OOP and traditional Back-End development.",
         techStack: ["Java", "OOP", "SQL", "GUI"],
         githubLink: "https://github.com/xebec51", // Ini placeholder jika belum ada repo spesifik
         liveDemoLink: "#"
@@ -61,7 +61,7 @@ const ProjectCard = ({ project, index }: { project: typeof projects[0], index: n
                 rel="noopener noreferrer"
                 className="flex-1 text-center px-4 py-2 text-sm font-semibold text-white bg-gray-900 rounded-lg hover:bg-red-600 transition duration-300"
             >
-                Lihat Kode (GitHub)
+                View Code (GitHub)
             </Link>
             {project.liveDemoLink !== "#" ? (
                 <Link 
@@ -94,14 +94,14 @@ export default function ProjectsSection() {
                     className="text-4xl font-extrabold text-gray-900 text-center mb-4"
                     data-aos="fade-down"
                 >
-                    Proyek Pilihan 
+                    Featured Projects
                 </h2>
                 <p 
                     className="text-lg text-gray-600 text-center mb-16 max-w-2xl mx-auto"
                     data-aos="fade-up"
                     data-aos-delay="100"
                 >
-                    Kumpulan proyek terbaik yang menunjukkan keahlian Front-End, Data Science, dan Back-End Anda.
+                    A selection of my best work showcasing full-stack development and data science capabilities.
                 </p>
 
                 {/* Grid Proyek */}
@@ -123,7 +123,7 @@ export default function ProjectsSection() {
                         rel="noopener noreferrer"
                         className="px-8 py-3 text-lg font-semibold text-white bg-red-600 rounded-xl hover:bg-red-700 transition duration-300 shadow-lg"
                     >
-                        Lihat Semua Repositori Saya
+                        View All Repositories
                     </Link>
                 </div>
 

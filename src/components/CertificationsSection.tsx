@@ -41,7 +41,7 @@ export default function CertificationsSection() {
                         viewport={{ once: true }}
                         className="text-3xl md:text-4xl font-extrabold text-gray-900 mb-4"
                     >
-                        Licences & Certifications
+                        Licenses & Certifications
                     </motion.h2>
                     <motion.p 
                         initial={{ opacity: 0, y: 20 }}
@@ -50,7 +50,7 @@ export default function CertificationsSection() {
                         viewport={{ once: true }}
                         className="text-gray-600 max-w-2xl mx-auto text-sm md:text-base"
                     >
-                        Validasi keahlian teknis melalui sertifikasi profesional.
+                        Validating technical expertise through professional accreditations.
                     </motion.p>
                 </div>
 
@@ -124,12 +124,12 @@ export default function CertificationsSection() {
                         >
                             {isAllVisible ? (
                                 <>
-                                    <span>Lebih Sedikit</span>
+                                    <span>Show Less</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m18 15-6-6-6 6"/></svg>
                                 </>
                             ) : (
                                 <>
-                                    <span>Lihat Semua ({certifications.length})</span>
+                                    <span>View All Certificates ({certifications.length})</span>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                                 </>
                             )}
@@ -190,7 +190,7 @@ export default function CertificationsSection() {
                                     className="flex items-center justify-center w-full md:w-auto gap-2 px-6 py-3 bg-gray-900 text-white rounded-xl font-bold hover:bg-red-600 transition-colors shadow-lg hover:shadow-red-600/30 text-sm md:text-base"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/></svg>
-                                    Lihat Kredensial
+                                    See Credential
                                 </a>
                             </div>
                         </motion.div>

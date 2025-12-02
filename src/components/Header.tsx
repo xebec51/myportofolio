@@ -7,27 +7,27 @@ import { motion } from 'framer-motion';
 
 const navigationLinks = [
     { 
-        name: 'Beranda', 
+        name: 'Home', 
         href: '#home', 
         path: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" 
     },
     { 
-        name: 'Tentang', 
+        name: 'About', 
         href: '#about', 
         path: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" 
     },
     { 
-        name: 'Keahlian', 
+        name: 'Tech Stack', 
         href: '#skills', 
         path: "M13 10V3L4 14h7v7l9-11h-7z" 
     },
     {
-        name: 'Sertifikasi',
+        name: 'Certificates',
         href: '#certifications',
         path: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
     },
     { 
-        name: 'Proyek', 
+        name: 'Projects', 
         href: '#projects', 
         path: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
     },
@@ -160,7 +160,7 @@ export default function Header() {
                             onClick={(e) => handleNavClick(e, 'contact')}
                             className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-gray-900 rounded-full hover:bg-red-600 hover:shadow-lg hover:shadow-red-600/20 hover:-translate-y-0.5 transition-all duration-300"
                         >
-                            <span>Hubungi Saya</span>
+                            <span>Contact Me</span>
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </Link>
                     </div>
@@ -213,7 +213,7 @@ export default function Header() {
                             onClick={(e) => handleNavClick(e, 'contact')}
                             className="flex items-center justify-center gap-2 w-full px-4 py-3 mt-2 text-sm font-bold text-white bg-red-600 rounded-xl hover:bg-red-700 active:scale-95 transition-all shadow-lg shadow-red-600/20"
                         >
-                            Hubungi Saya
+                            Contact Me
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </a>
                     </div>
