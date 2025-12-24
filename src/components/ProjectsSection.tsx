@@ -166,7 +166,7 @@ export default function ProjectsSection() {
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setSelectedProject(null)}
-                        className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm"
+                        className="fixed inset-0 z-9999 flex items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm"
                     >
                         
                         <motion.div
@@ -176,7 +176,7 @@ export default function ProjectsSection() {
                             transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                         >
                             {/* Scrollable Content */}
-                            <div className="overflow-y-auto custom-scrollbar flex-grow">
+                            <div className="overflow-y-auto custom-scrollbar grow">
                                 {/* Modal Image */}
                                 <div className="relative aspect-video w-full bg-gray-100">
                                     <Image
