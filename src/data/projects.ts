@@ -37,7 +37,7 @@ export const projects: Project[] = [
     title: "GestureLearn: AI Hand Recognition",
     shortDescription: "Real-time hand gesture detection and interpretation system using Computer Vision.",
     description: "An advanced Machine Learning model capable of detecting and interpreting hand gestures in real-time. This project leverages Computer Vision techniques to enable intuitive human-computer interaction without physical contact.",
-    image: "/projects/project.jpg", // Ganti dengan mock-up desain GestureLearn
+    image: "/assets/GesLee.png", // Ganti dengan mock-up desain GestureLearn
     techStack: ["Python", "TensorFlow", "OpenCV", "Computer Vision"],
     githubLink: "https://github.com/xebec51/GestureLearn.git",
     liveDemoLink: "#"
