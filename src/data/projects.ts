@@ -47,7 +47,7 @@ export const projects: Project[] = [
     title: "KanHas: Smart Canteen App", // Judul diperbarui
     shortDescription: "A mobile canteen ordering system with role-based access and offline persistence.", // Deskripsi singkat akurat
     description: "A comprehensive Flutter mobile application for digitizing university canteen orders. Features include multi-role access (Admin/Student), complex state management with Provider, and local data persistence using Shared Preferences. It allows users to browse menus, manage carts, and view order history in real-time.",
-    image: "/projects/kanhas.png", // Ganti nama file ini nanti hasil generate AI
+    image: "/assets/kanhas.png", // Ganti nama file ini nanti hasil generate AI
     techStack: ["Flutter", "Dart", "Provider", "Shared Preferences", "MVVM Architecture"], // Tech stack diperbaiki
     githubLink: "https://github.com/xebec51/KanHas.git",
     liveDemoLink: "#" // Kosongkan jika belum ada APK demo live
