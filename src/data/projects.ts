@@ -44,13 +44,13 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "KanHas: Kanban Board System",
-    shortDescription: "A collaborative task management application for agile teams.",
-    description: "A comprehensive Kanban-style task management application designed to boost team productivity. Features include drag-and-drop task organization, real-time updates, and an intuitive dashboard for agile project management.",
-    image: "/projects/project.jpg", // Ganti dengan mock-up desain KanHas
-    techStack: ["Next.js", "React", "MongoDB", "Node.js", "Tailwind CSS"],
+    title: "KanHas: Smart Canteen App", // Judul diperbarui
+    shortDescription: "A mobile canteen ordering system with role-based access and offline persistence.", // Deskripsi singkat akurat
+    description: "A comprehensive Flutter mobile application for digitizing university canteen orders. Features include multi-role access (Admin/Student), complex state management with Provider, and local data persistence using Shared Preferences. It allows users to browse menus, manage carts, and view order history in real-time.",
+    image: "/projects/kanhas.png", // Ganti nama file ini nanti hasil generate AI
+    techStack: ["Flutter", "Dart", "Provider", "Shared Preferences", "MVVM Architecture"], // Tech stack diperbaiki
     githubLink: "https://github.com/xebec51/KanHas.git",
-    liveDemoLink: "#"
+    liveDemoLink: "#" // Kosongkan jika belum ada APK demo live
   },
   {
     id: 5,
