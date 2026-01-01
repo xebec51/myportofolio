@@ -27,10 +27,10 @@ export const projects: Project[] = [
     title: "EatoSphere: Global Restaurant Catalog",
     shortDescription: "A Progressive Web App (PWA) for exploring global restaurants with offline capabilities.",
     description: "An immersive Progressive Web App (PWA) designed for exploring a vast catalog of global restaurants. Built with a focus on mobile-first performance, offline accessibility, and a seamless user experience using modern web technologies.",
-    image: "/projects/project.jpg", // Ganti dengan mock-up desain EatoSphere
+    image: "/assets/EatoSphere.png", // Ganti dengan mock-up desain EatoSphere
     techStack: ["JavaScript", "PWA", "Webpack", "Service Workers", "Rest API"],
     githubLink: "https://github.com/xebec51/EatoSphere-GlobalRestaurantsCatalog.git",
-    liveDemoLink: "#" 
+    liveDemoLink: "https://eatosphere.netlify.app/" 
   },
   {
     id: 3,
