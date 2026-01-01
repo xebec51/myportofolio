@@ -51,15 +51,5 @@ export const projects: Project[] = [
     techStack: ["Flutter", "Dart", "Provider", "Shared Preferences", "MVVM Architecture"], // Tech stack diperbaiki
     githubLink: "https://github.com/xebec51/KanHas.git",
     liveDemoLink: "#" // Kosongkan jika belum ada APK demo live
-  },
-  {
-    id: 5,
-    title: "Inventory Management System",
-    shortDescription: "Java-based application for efficient asset and stock tracking.",
-    description: "A robust desktop application for managing enterprise assets and inventory. Built with Java and SQL, it provides reliable data tracking, reporting features, and a user-friendly graphical interface for administrative tasks.",
-    image: "/projects/project.jpg", // Ganti dengan mock-up desain Inventory
-    techStack: ["Java", "MySQL", "OOP", "Swing/JavaFX"],
-    githubLink: "https://github.com/xebec51",
-    liveDemoLink: "#"
   }
 ];
