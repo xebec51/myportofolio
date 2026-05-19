@@ -94,7 +94,7 @@ body {
   transition: opacity 200ms ease, transform 200ms ease;
   white-space: nowrap;
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
-  z-index: 40;
+  z-index: 9999;
 }
 
 .marquee__item:focus .marquee__tooltip,

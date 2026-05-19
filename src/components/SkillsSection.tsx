@@ -36,7 +36,7 @@ const skills: SkillProps[] = [
 
 export default function SkillsSection() {
   return (
-        <section id="skills" className="relative overflow-hidden py-24 bg-white">
+        <section id="skills" className="relative overflow-visible py-24 bg-white">
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[18px_18px]" />
 
             <div className="container mx-auto px-6 relative z-10">
