@@ -38,8 +38,8 @@ const socialLinks = [
     },
     {
         name: 'Telegram',
-        href: `https://t.me/${contactInfo.whatsapp.replace(/\+/g, '')}`,
-        iconPath: 'M2 21l21-9L2 3v7l15 2-15 2v6z',
+        href: `https://t.me/$6289623080501`,
+        iconPath: 'M21.64 3.17c-.27-.12-.62-.05-.82.18L2.8 18.95c-.3.29-.26.78.07 1.03.15.12.35.18.54.18.18 0 .36-.06.5-.17l4.54-3.28 2.2 3.62c.14.24.39.39.66.39.06 0 .12-.01.18-.03.32-.08.54-.36.56-.69l.32-6.5 4.7-4.77c.22-.23.28-.57.14-.86-.12-.29-.39-.47-.69-.51z',
     },
 ];
 
@@ -125,6 +125,7 @@ export default function ContactSection() {
                         viewport={{ once: true }}
                         className="rounded-4xl border border-neutral-200 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:p-8 h-full"
                     >
+                        <h3 className="text-lg font-semibold text-neutral-900 mb-4">Contact Me</h3>
                         <form className="space-y-5 max-w-full mx-auto" onSubmit={handleSubmit}>
                             <div className="grid gap-5 md:grid-cols-2">
                                 <label className="block">
@@ -166,8 +167,6 @@ export default function ContactSection() {
                                     required
                                 />
                             </label>
-
-                            <div className="mt-1 mb-2 text-sm font-semibold text-neutral-900">Send a message</div>
 
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
                                 <motion.button
