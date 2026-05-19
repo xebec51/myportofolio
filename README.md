@@ -1,37 +1,99 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio Muh. Rinaldi Ruslan
 
-## Getting Started
+<p align="center">
+	<a href="https://github.com/xebec51">
+		<img src="https://img.shields.io/badge/GitHub-xebec51-blue?logo=github" alt="GitHub" />
+	</a>
+	<a href="https://www.linkedin.com/in/rinaldiruslan">
+		<img src="https://img.shields.io/badge/LinkedIn-rinaldiruslan-0A66C2?logo=linkedin&logoColor=white" alt="LinkedIn" />
+	</a>
+	<a href="https://www.instagram.com/rinaldiruslan/">
+		<img src="https://img.shields.io/badge/Instagram-rinaldiruslan-E4405F?logo=instagram&logoColor=white" alt="Instagram" />
+	</a>
+	<a href="https://www.tiktok.com/@rinaldiruslan">
+		<img src="https://img.shields.io/badge/TikTok-rinaldiruslan-000000?logo=tiktok&logoColor=white" alt="TikTok" />
+	</a>
+	<br />
+	<img src="https://img.shields.io/badge/Project%20Status-Active-brightgreen" alt="Project Status" />
+	<img src="https://img.shields.io/badge/Next.js-16.1.1-black?logo=nextdotjs" alt="Next.js" />
+	<img src="https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript&logoColor=white" alt="TypeScript" />
+</p>
 
-First, run the development server:
+Portofolio personal yang dibangun dengan Next.js, React, TypeScript, Tailwind CSS, Framer Motion, dan AOS.
+
+## Fitur
+
+- Landing page portofolio dengan beberapa section utama.
+- Halaman profil terpisah.
+- Animasi interaktif menggunakan Framer Motion dan AOS.
+- Google Analytics via `NEXT_PUBLIC_GA_ID`.
+
+## Stack
+
+- `Next.js`
+- `React`
+- `TypeScript`
+- `Tailwind CSS`
+- `Framer Motion`
+- `AOS`
+
+## Menjalankan Lokal
+
+1. Install dependency:
+
+```bash
+npm install
+```
+
+2. Jalankan development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Buka:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Build Produksi
 
-## Learn More
+```bash
+npm run build
+```
 
-To learn more about Next.js, take a look at the following resources:
+Lalu jalankan hasil build dengan:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Environment
 
-## Deploy on Vercel
+Buat atau ubah file [`.env.local`](.env.local) dengan Measurement ID Google Analytics Anda:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-Credits Details
+## Struktur Singkat
+
+- `src/app/` — route utama, layout, dan halaman.
+- `src/components/` — komponen UI portofolio.
+- `src/data/` — data konten untuk skills, projects, dan certifications.
+- `public/` — aset gambar dan file statis.
+
+## Deploy
+
+Project ini siap dideploy ke Vercel.
+
+```bash
+vercel
+```
+
+## Catatan
+
+- File `.env.local` tidak ikut di-commit.
+- Pastikan Measurement ID Google Analytics valid agar tracking aktif.
+- Status proyek saat ini: aktif dan siap dikembangkan lebih lanjut.
