@@ -32,33 +32,7 @@ const skills: SkillProps[] = [
     { name: 'Prometheus', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg' },
 ];
 
-const marqueeSkills = [...skills, ...skills];
-
-const SkillCard = ({ name, icon }: { name: string; icon: string }) => (
-    <div
-        role="button"
-        tabIndex={0}
-        aria-label={name}
-        className="group relative flex h-24 w-24 flex-none items-center justify-center overflow-visible rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-neutral-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] focus:outline-none focus:ring-0 sm:h-28 sm:w-28"
-    >
-        {/* Logo */}
-        <Image
-            src={icon}
-            alt={name}
-            width={56}
-            height={56}
-            className="relative z-10 h-12 w-12 object-contain transition-transform duration-300 ease-out group-hover:scale-110 group-focus:scale-110 sm:h-14 sm:w-14"
-            loading="lazy"
-        />
-
-        {/* Tooltip above logo on hover/focus (match Hero TechIcon style) */}
-        <div className="pointer-events-none absolute left-1/2 -top-10 transform -translate-x-1/2">
-            <span className="translate-y-1 bg-gray-900 px-3 py-1.5 text-xs text-white rounded-md opacity-0 whitespace-nowrap shadow-lg transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100">
-                {name}
-            </span>
-        </div>
-    </div>
-);
+// Marquee items rendered inline in the component below
 
 export default function SkillsSection() {
   return (
@@ -86,11 +60,22 @@ export default function SkillsSection() {
                     </p>
                 </div>
 
-                <div className="tech-marquee mx-auto max-w-6xl">
-                    <div className="tech-marquee-track">
-                        {marqueeSkills.map((skill, index) => (
-                            <SkillCard key={`${skill.name}-${index}`} name={skill.name} icon={skill.icon} />
-                        ))}
+                <div className="mx-auto max-w-full">
+                    <div className="marquee" role="region" aria-label="Tech marquee" tabIndex={0}>
+                        <div className="marquee__track animate">
+                            {skills.map((skill, i) => (
+                                <div key={`a-${skill.name}-${i}`} className="marquee__item" role="button" tabIndex={0} aria-label={skill.name}>
+                                    <Image src={skill.icon} alt={skill.name} width={56} height={56} className="marquee__logo" loading="lazy" />
+                                    <span className="marquee__tooltip">{skill.name}</span>
+                                </div>
+                            ))}
+                            {skills.map((skill, i) => (
+                                <div key={`b-${skill.name}-${i}`} className="marquee__item" role="button" tabIndex={0} aria-label={skill.name}>
+                                    <Image src={skill.icon} alt={skill.name} width={56} height={56} className="marquee__logo" loading="lazy" />
+                                    <span className="marquee__tooltip">{skill.name}</span>
+                                </div>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>

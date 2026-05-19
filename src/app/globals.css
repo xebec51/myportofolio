@@ -25,36 +25,78 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-@keyframes tech-marquee {
-  from {
-    transform: translateX(0);
-  }
-
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-.tech-marquee {
+/* Marquee styles for Tech Stack slider */
+.marquee {
   overflow: hidden;
+  position: relative;
+  padding-top: 1.25rem; /* generous padding to avoid clipping tooltip */
+  padding-bottom: 1.25rem;
 }
 
-.tech-marquee-track {
+.marquee__track {
   display: flex;
-  width: max-content;
-  flex-wrap: nowrap;
-  gap: 1rem;
-  animation: tech-marquee 42s linear infinite;
+  gap: 1.5rem;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.marquee__track.animate {
+  animation: marquee 24s linear infinite;
   will-change: transform;
 }
 
-.tech-marquee:hover .tech-marquee-track {
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track {
   animation-play-state: paused;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .tech-marquee-track {
-    animation: none;
-    transform: none;
-  }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
+
+.marquee__item {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.25rem 0.5rem;
+}
+
+.marquee__logo {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  transition: transform 200ms ease;
+  display: block;
+}
+
+.marquee__item:focus .marquee__logo,
+.marquee__item:hover .marquee__logo {
+  transform: scale(1.12);
+}
+
+.marquee__tooltip {
+  position: absolute;
+  top: -2.2rem;
+  left: 50%;
+  transform: translateX(-50%) translateY(6px);
+  background: rgba(17,17,17,0.95);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+}
+
+.marquee__item:focus .marquee__tooltip,
+.marquee__item:hover .marquee__tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
