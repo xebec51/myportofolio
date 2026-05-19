@@ -32,14 +32,14 @@ const skills: SkillProps[] = [
     { name: 'Prometheus', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg' },
 ];
 
-const SkillCard = ({ name, icon, delay }: { name: string; icon: string; delay: number }) => (
+const marqueeSkills = [...skills, ...skills];
+
+const SkillCard = ({ name, icon }: { name: string; icon: string }) => (
     <div
         role="button"
         tabIndex={0}
         aria-label={name}
-        className="group relative flex items-center justify-center overflow-visible rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-neutral-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] focus:outline-none focus:ring-0"
-        data-aos="fade-up"
-        data-aos-delay={delay}
+        className="group relative flex h-24 w-24 flex-none items-center justify-center overflow-visible rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-neutral-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] focus:outline-none focus:ring-0 sm:h-28 sm:w-28"
     >
         {/* Logo */}
         <Image
@@ -47,7 +47,7 @@ const SkillCard = ({ name, icon, delay }: { name: string; icon: string; delay: n
             alt={name}
             width={56}
             height={56}
-            className="relative z-10 h-14 w-14 object-contain transition-transform duration-300 ease-out group-hover:scale-110 group-focus:scale-110"
+            className="relative z-10 h-12 w-12 object-contain transition-transform duration-300 ease-out group-hover:scale-110 group-focus:scale-110 sm:h-14 sm:w-14"
             loading="lazy"
         />
 
@@ -86,10 +86,12 @@ export default function SkillsSection() {
                     </p>
                 </div>
 
-                <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                    {skills.map((skill, index) => (
-                        <SkillCard key={skill.name} name={skill.name} icon={skill.icon} delay={index * 70} />
-                    ))}
+                <div className="tech-marquee mx-auto max-w-6xl">
+                    <div className="tech-marquee-track">
+                        {marqueeSkills.map((skill, index) => (
+                            <SkillCard key={`${skill.name}-${index}`} name={skill.name} icon={skill.icon} />
+                        ))}
+                    </div>
                 </div>
             </div>
     </section>
