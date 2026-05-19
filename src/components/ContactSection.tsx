@@ -36,6 +36,7 @@ const socialLinks = [
         href: 'https://www.facebook.com/rinaldi.naldi.5220',
         iconPath: 'M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z',
     },
+    // Telegram will be appended in-component so it can use the whatsapp number
 ];
 
 type FormState = {
@@ -75,6 +76,19 @@ export default function ContactSection() {
 
         return `mailto:${contactInfo.email}?subject=${subject}&body=${body}`;
     }, [formState.email, formState.message, formState.name]);
+
+    const telegramLink = useMemo(() => `https://t.me/${contactInfo.whatsapp.replace(/\+/g, '')}`, []);
+
+    const allSocialLinks = useMemo(() => {
+        return [
+            ...socialLinks,
+            {
+                name: 'Telegram',
+                href: telegramLink,
+                iconPath: 'M21 3L3 10l7 2 2 7 9-16z',
+            },
+        ];
+    }, [telegramLink]);
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = event.target;
@@ -163,6 +177,7 @@ export default function ContactSection() {
                             </label>
 
                             <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
+                                <div className="text-sm font-semibold text-neutral-800">Send a message</div>
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
@@ -222,10 +237,10 @@ export default function ContactSection() {
 
                         <div>
                             <h3 className="text-lg font-semibold text-neutral-900">Social links</h3>
-                            <div className="mt-4 grid gap-3 grid-cols-1">
-                                {socialLinks.map((social, index) => (
+                            <div className="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2">
+                                {allSocialLinks.map((social, index) => (
                                     <motion.div
-                                        key={social.name}
+                                            key={social.name}
                                         initial={{ opacity: 0, y: 10 }}
                                         whileInView={{ opacity: 1, y: 0 }}
                                         transition={{ duration: 0.4, delay: index * 0.05 }}
