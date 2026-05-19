@@ -17,14 +17,14 @@ const skills: SkillProps[] = [
     { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
-    { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss' },
-    { name: 'Laravel', icon: 'https://cdn.simpleicons.org/laravel' },
+    { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+    { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg' },
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
     { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
     { name: 'FastAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
     { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
     { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
-    { name: 'MLOps', icon: 'https://cdn.simpleicons.org/mlflow' },
+    { name: 'MLOps', icon: 'https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/mlflow.svg' },
     { name: 'Android Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg' },
     { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
@@ -37,7 +37,7 @@ const SkillCard = ({ name, icon, delay }: { name: string; icon: string; delay: n
         role="button"
         tabIndex={0}
         aria-label={name}
-        className="group relative flex items-center justify-center overflow-hidden rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-neutral-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] focus:outline-none focus:ring-0"
+        className="group relative flex items-center justify-center overflow-visible rounded-3xl border border-neutral-200 bg-white p-4 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-neutral-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] focus:outline-none focus:ring-0"
         data-aos="fade-up"
         data-aos-delay={delay}
     >
@@ -47,13 +47,13 @@ const SkillCard = ({ name, icon, delay }: { name: string; icon: string; delay: n
             alt={name}
             width={56}
             height={56}
-            className="relative z-10 h-14 w-14 object-contain transition-transform duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110"
+            className="relative z-10 h-14 w-14 object-contain transition-transform duration-300 ease-out group-hover:scale-110 group-focus:scale-110"
             loading="lazy"
         />
 
         {/* Tooltip above logo on hover/focus (match Hero TechIcon style) */}
         <div className="pointer-events-none absolute left-1/2 -top-10 transform -translate-x-1/2">
-            <span className="bg-gray-900 text-white text-xs px-3 py-1.5 rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 whitespace-nowrap shadow-lg">
+            <span className="translate-y-1 bg-gray-900 px-3 py-1.5 text-xs text-white rounded-md opacity-0 whitespace-nowrap shadow-lg transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus:translate-y-0 group-focus:opacity-100">
                 {name}
             </span>
         </div>
