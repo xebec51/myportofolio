@@ -304,17 +304,9 @@ const TechIcon = ({
     iconPath: string, 
     strokeIcon?: boolean 
 }) => (
-    <motion.div 
-        className={`absolute ${position} w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white rounded-full shadow-lg flex items-center justify-center z-20 group cursor-pointer`}
-        // Animasi floating naik turun yang smooth
-        animate={{ y: [0, -12, 0] }}
-        transition={{ 
-            duration: 4, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: delay 
-        }}
-        whileHover={{ scale: 1.1 }}
+    <div 
+        className={`tech-icon-float absolute ${position} w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 bg-white rounded-full shadow-lg flex items-center justify-center z-20 group cursor-pointer transition-transform duration-300 ease-out hover:scale-110`}
+        style={{ animationDelay: `${delay}s` }}
     >
         {strokeIcon ? (
             <svg className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-9 lg:h-9 ${color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -330,5 +322,5 @@ const TechIcon = ({
         <span className="absolute -top-10 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-3 py-1.5 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none shadow-lg">
             {label}
         </span>
-    </motion.div>
+    </div>
 );
