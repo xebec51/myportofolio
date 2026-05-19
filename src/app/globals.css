@@ -81,6 +81,7 @@ body {
 }
 
 .marquee__tooltip {
+  /* fallback absolute tooltip style (not used for floating tooltip) */
   position: absolute;
   top: -2.6rem;
   left: 50%;
@@ -96,6 +97,19 @@ body {
   white-space: nowrap;
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
   z-index: 9999;
+}
+
+.marquee__floating-tooltip {
+  /* used when tooltip is rendered as fixed/floating element */
+  background: rgba(17,17,17,0.95);
+  color: #fff;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  transition: opacity 150ms ease, transform 150ms ease;
+  z-index: 99999;
 }
 
 .marquee__item:focus .marquee__tooltip,

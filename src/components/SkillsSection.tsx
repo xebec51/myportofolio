@@ -1,6 +1,7 @@
+﻿"use client";
 // src/components/SkillsSection.tsx
 import Image from 'next/image';
-import React from 'react';
+import React, { useState, useRef } from 'react';
 
 type SkillProps = {
     name: string;
@@ -35,7 +36,7 @@ const skills: SkillProps[] = [
 // Marquee items rendered inline in the component below
 
 export default function SkillsSection() {
-  return (
+    return (
         <section id="skills" className="relative overflow-visible py-16 bg-white">
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[18px_18px]" />
 
@@ -44,41 +45,96 @@ export default function SkillsSection() {
                     <span className="text-sm font-medium uppercase tracking-[0.35em] text-neutral-500 block" data-aos="fade-up">
                         My Arsenal
                     </span>
-                    <h2
-                        className="mt-2 text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900"
-                        data-aos="fade-down"
-                        data-aos-delay="100"
-                    >
+                    <h2 className="mt-2 text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900" data-aos="fade-down" data-aos-delay="100">
                         Tech Stack & Tools
                     </h2>
-                    <p
-                        className="mx-auto mt-3 max-w-2xl text-base md:text-lg leading-relaxed text-neutral-600"
-                        data-aos="fade-up"
-                        data-aos-delay="200"
-                    >
+                    <p className="mx-auto mt-3 max-w-2xl text-base md:text-lg leading-relaxed text-neutral-600" data-aos="fade-up" data-aos-delay="200">
                         A focused set of technologies I use to build responsive web experiences and practical AI workflows.
                     </p>
                 </div>
 
                 <div className="mx-auto max-w-full">
                     <div className="marquee" role="region" aria-label="Tech marquee" tabIndex={0}>
-                        <div className="marquee__track animate">
-                            {skills.map((skill, i) => (
-                                <div key={`a-${skill.name}-${i}`} className="marquee__item" role="button" tabIndex={0} aria-label={skill.name}>
-                                    <Image src={skill.icon} alt={skill.name} width={56} height={56} className="marquee__logo" loading="lazy" />
-                                    <span className="marquee__tooltip">{skill.name}</span>
-                                </div>
-                            ))}
-                            {skills.map((skill, i) => (
-                                <div key={`b-${skill.name}-${i}`} className="marquee__item" role="button" tabIndex={0} aria-label={skill.name}>
-                                    <Image src={skill.icon} alt={skill.name} width={56} height={56} className="marquee__logo" loading="lazy" />
-                                    <span className="marquee__tooltip">{skill.name}</span>
-                                </div>
-                            ))}
-                        </div>
+                        <MarqueeTrack skills={skills} />
                     </div>
                 </div>
             </div>
-    </section>
-  );
+        </section>
+    );
 }
+
+        function MarqueeTrack({ skills }: { skills: { name: string; icon: string }[] }) {
+            const [visible, setVisible] = useState(false);
+            const [text, setText] = useState('');
+            const [pos, setPos] = useState({ x: 0, y: 0 });
+            const trackRef = useRef<HTMLDivElement | null>(null);
+
+            const show = (skillName: string, el: HTMLElement | null) => {
+                if (!el) return;
+                const r = el.getBoundingClientRect();
+                setText(skillName);
+                setPos({ x: r.left + r.width / 2, y: r.top - 10 });
+                setVisible(true);
+            };
+
+            const move = (el: HTMLElement | null) => {
+                if (!el) return;
+                const r = el.getBoundingClientRect();
+                setPos({ x: r.left + r.width / 2, y: r.top - 10 });
+            };
+
+            const hide = () => setVisible(false);
+
+            return (
+                <>
+                                <div ref={trackRef} className="marquee__track animate">
+                                    {skills.map((skill, i) => (
+                                        <div
+                                            key={`a-${skill.name}-${i}`}
+                                            className="marquee__item"
+                                            role="button"
+                                            tabIndex={0}
+                                            aria-label={skill.name}
+                                            onMouseEnter={(e) => show(skill.name, e.currentTarget as HTMLElement)}
+                                            onMouseMove={(e) => move(e.currentTarget as HTMLElement)}
+                                            onMouseLeave={hide}
+                                            onFocus={(e) => show(skill.name, e.currentTarget as HTMLElement)}
+                                            onBlur={hide}
+                                        >
+                                            <Image src={skill.icon} alt={skill.name} width={56} height={56} className="marquee__logo" loading="lazy" />
+                                        </div>
+                                    ))}
+                                    {skills.map((skill, i) => (
+                                        <div
+                                            key={`b-${skill.name}-${i}`}
+                                            className="marquee__item"
+                                            role="button"
+                                            tabIndex={0}
+                                            aria-label={skill.name}
+                                            onMouseEnter={(e) => show(skill.name, e.currentTarget as HTMLElement)}
+                                            onMouseMove={(e) => move(e.currentTarget as HTMLElement)}
+                                            onMouseLeave={hide}
+                                            onFocus={(e) => show(skill.name, e.currentTarget as HTMLElement)}
+                                            onBlur={hide}
+                                        >
+                                            <Image src={skill.icon} alt={skill.name} width={56} height={56} className="marquee__logo" loading="lazy" />
+                                        </div>
+                                    ))}
+                                </div>
+
+                    <div
+                        className="marquee__tooltip marquee__floating-tooltip"
+                        style={{
+                            left: pos.x,
+                            top: pos.y,
+                            position: 'fixed',
+                            transform: 'translateX(-50%) translateY(-8px)',
+                            opacity: visible ? 1 : 0,
+                            pointerEvents: 'none',
+                        }}
+                    >
+                        {text}
+                    </div>
+                </>
+            );
+        }
