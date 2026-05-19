@@ -112,15 +112,15 @@ export default function ContactSection() {
                     </p>
                 </motion.div>
 
-                <div className="mx-auto grid max-w-6xl gap-8 lg:grid-cols-[1.25fr_0.75fr]">
+                <div className="mx-auto grid max-w-5xl gap-8 items-start lg:grid-cols-2">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.55, delay: 0.1 }}
                         viewport={{ once: true }}
-                        className="rounded-4xl border border-neutral-200 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:p-8"
+                        className="rounded-4xl border border-neutral-200 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:p-8 h-full"
                     >
-                        <form className="space-y-5" onSubmit={handleSubmit}>
+                        <form className="space-y-5 max-w-full mx-auto" onSubmit={handleSubmit}>
                             <div className="grid gap-5 md:grid-cols-2">
                                 <label className="block">
                                     <span className="mb-2 block text-sm font-medium text-neutral-700">Name</span>
@@ -162,7 +162,7 @@ export default function ContactSection() {
                                 />
                             </label>
 
-                            <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center lg:justify-start">
                                 <motion.button
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
@@ -173,10 +173,7 @@ export default function ContactSection() {
                                     <span aria-hidden="true">→</span>
                                 </motion.button>
 
-                                <Link
-                                    href={mailtoLink}
-                                    className="inline-flex items-center justify-center rounded-2xl border border-neutral-200 px-6 py-3 text-sm font-medium text-neutral-700 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50"
-                                >
+                                <Link href={mailtoLink} className="inline-flex items-center justify-center rounded-2xl border border-neutral-200 px-6 py-3 text-sm font-medium text-neutral-700 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50">
                                     Use email app instead
                                 </Link>
                             </div>
@@ -188,7 +185,7 @@ export default function ContactSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.55, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="space-y-6 rounded-4xl border border-neutral-200 bg-neutral-50 p-6 md:p-8"
+                        className="space-y-6 rounded-4xl border border-neutral-200 bg-neutral-50 p-6 md:p-8 h-full flex flex-col justify-between"
                     >
                         <div>
                             <h3 className="text-lg font-semibold text-neutral-900">Contact info</h3>
@@ -225,7 +222,7 @@ export default function ContactSection() {
 
                         <div>
                             <h3 className="text-lg font-semibold text-neutral-900">Social links</h3>
-                            <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+                            <div className="mt-4 grid gap-3 grid-cols-1">
                                 {socialLinks.map((social, index) => (
                                     <motion.div
                                         key={social.name}
@@ -238,7 +235,7 @@ export default function ContactSection() {
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)]"
+                                            className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] w-full"
                                             aria-label={social.name}
                                         >
                                             <span className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-700 transition-transform duration-300 group-hover:scale-105">
