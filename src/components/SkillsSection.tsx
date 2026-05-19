@@ -51,9 +51,9 @@ const SkillCard = ({ name, icon, delay }: { name: string; icon: string; delay: n
             loading="lazy"
         />
 
-        {/* Tooltip above logo on hover/focus (matches Hero TechIcon style) */}
-        <div className="pointer-events-none absolute -top-10 left-1/2 transform -translate-x-1/2 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
-            <span className="whitespace-nowrap rounded-md bg-gray-900 text-white text-xs px-3 py-1.5 opacity-0 shadow-lg transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 pointer-events-none">
+        {/* Tooltip above logo on hover/focus (match Hero TechIcon style) */}
+        <div className="pointer-events-none absolute left-1/2 -top-10 transform -translate-x-1/2">
+            <span className="bg-gray-900 text-white text-xs px-3 py-1.5 rounded-md opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 whitespace-nowrap shadow-lg">
                 {name}
             </span>
         </div>
