@@ -10,7 +10,16 @@ export interface Certificate {
 }
 
 const certs = [
-  // --- TAHUN 2025 (Terbaru) ---
+  // --- TAHUN 2026 (Terbaru) ---
+  { 
+    file: "Membangun Sistem Machine Learning (MLOps)", 
+    imageFile: "Membangun Sistem Machine Learning.jpg",
+    issuer: "Dicoding Indonesia", 
+    date: "Mei 2026", 
+    credentialLink: "https://www.dicoding.com/certificates/RVZK0M64MZD5"
+  },
+
+  // --- TAHUN 2025 ---
   { 
     file: "Belajar Membuat Aplikasi Flutter untuk Pemula", 
     imageFile: "Belajar Membuat Aplikasi Flutter untuk Pemula-page-00001.jpg",
@@ -233,21 +242,21 @@ const certs = [
     credentialLink: "https://www.dicoding.com/certificates/EYX4010O5PDL"
   },
 
-  // --- Tahun 2022 ---
+  // --- TAHUN 2022 ---
   { 
     file: "Kelas Nahwu Sharaf", 
     imageFile: "Kelas Nahwu Sharaf.png",
-    issuer: "Arabic Quantum", // Ganti dengan nama lembaga yang tertera di sertifikat
-    date: "Juli 2022", // Sesuaikan tahunnya
+    issuer: "Arabic Quantum", 
+    date: "Juli 2022", 
     credentialLink: "https://arabicquantum.com/"
   },
   { 
     file: "Kursus Bahasa Arab", 
     imageFile: "Kursus Bahasa Arab.PNG",
-    issuer: "Arabic Quantum", // Ganti dengan nama lembaga yang tertera di sertifikat
-    date: "Juni 2022", // Sesuaikan tahunnya
+    issuer: "Arabic Quantum", 
+    date: "Juni 2022", 
     credentialLink: "https://arabicquantum.com/"
-  },
+  }
 ];
 
 export const certifications: Certificate[] = certs.map((cert, index) => ({
@@ -255,7 +264,6 @@ export const certifications: Certificate[] = certs.map((cert, index) => ({
   title: cert.file,
   issuer: cert.issuer,
   date: cert.date,
-  // PERBAIKAN: Menghapus '/thumbnails' dari path karena file ada langsung di dalam '/certificates'
   image: `/certificates/${cert.imageFile}`, 
   credentialLink: cert.credentialLink
 }));
