@@ -36,23 +36,23 @@ const skills: SkillProps[] = [
 
 export default function SkillsSection() {
   return (
-        <section id="skills" className="relative overflow-visible py-24 bg-white">
+        <section id="skills" className="relative overflow-visible py-16 bg-white">
             <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[18px_18px]" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
+                <div className="text-center mb-8">
                     <span className="text-sm font-medium uppercase tracking-[0.35em] text-neutral-500 block" data-aos="fade-up">
                         My Arsenal
                     </span>
                     <h2
-                        className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900"
+                        className="mt-2 text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900"
                         data-aos="fade-down"
                         data-aos-delay="100"
                     >
                         Tech Stack & Tools
                     </h2>
                     <p
-                        className="mx-auto mt-5 max-w-2xl text-base md:text-lg leading-relaxed text-neutral-600"
+                        className="mx-auto mt-3 max-w-2xl text-base md:text-lg leading-relaxed text-neutral-600"
                         data-aos="fade-up"
                         data-aos-delay="200"
                     >
