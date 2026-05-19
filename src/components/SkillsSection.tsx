@@ -17,14 +17,14 @@ const skills: SkillProps[] = [
     { name: 'CSS3', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
     { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
     { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
-    { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
-    { name: 'Laravel', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg' },
+    { name: 'Tailwind CSS', icon: 'https://cdn.simpleicons.org/tailwindcss' },
+    { name: 'Laravel', icon: 'https://cdn.simpleicons.org/laravel' },
     { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
     { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
     { name: 'FastAPI', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg' },
     { name: 'TensorFlow', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
     { name: 'PyTorch', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
-    { name: 'MLOps', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mlflow/mlflow-original.svg' },
+    { name: 'MLOps', icon: 'https://cdn.simpleicons.org/mlflow' },
     { name: 'Android Studio', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg' },
     { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
     { name: 'Docker', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
@@ -51,9 +51,9 @@ const SkillCard = ({ name, icon, delay }: { name: string; icon: string; delay: n
             loading="lazy"
         />
 
-        {/* Overlay that reveals the name on hover/focus */}
-        <div className="pointer-events-none absolute inset-0 flex items-end justify-center bg-gradient-to-t from-white/90 via-white/40 to-transparent opacity-0 transition-all duration-250 group-hover:opacity-100 group-focus-within:opacity-100">
-            <span className="mb-4 rounded-md bg-white/70 px-3 py-1 text-sm font-medium text-neutral-900 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus-within:opacity-100">
+        {/* Tooltip above logo on hover/focus */}
+        <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-2 flex items-center justify-center opacity-0 transition-all duration-200 group-hover:opacity-100 group-focus-within:opacity-100">
+            <span className="rounded-md bg-white/90 px-3 py-1 text-sm font-medium text-neutral-900 shadow-sm backdrop-blur-sm opacity-0 transform transition-all duration-200 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0">
                 {name}
             </span>
         </div>
