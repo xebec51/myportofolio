@@ -27,9 +27,11 @@ body {
 
 /* Marquee styles for Tech Stack slider */
 .marquee {
-  overflow: hidden;
+  /* keep horizontal clipping but allow vertical overflow for tooltips */
+  overflow-x: hidden;
+  overflow-y: visible;
   position: relative;
-  padding-top: 1.25rem; /* generous padding to avoid clipping tooltip */
+  padding-top: 1.75rem; /* increased padding to avoid clipping tooltip */
   padding-bottom: 1.25rem;
 }
 
@@ -79,7 +81,7 @@ body {
 
 .marquee__tooltip {
   position: absolute;
-  top: -2.2rem;
+  top: -2.6rem;
   left: 50%;
   transform: translateX(-50%) translateY(6px);
   background: rgba(17,17,17,0.95);
@@ -92,6 +94,7 @@ body {
   transition: opacity 200ms ease, transform 200ms ease;
   white-space: nowrap;
   box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  z-index: 40;
 }
 
 .marquee__item:focus .marquee__tooltip,
