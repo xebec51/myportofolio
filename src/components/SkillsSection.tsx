@@ -1,129 +1,78 @@
 // src/components/SkillsSection.tsx
+import Image from 'next/image';
 import React from 'react';
 
-// Tipe data untuk Skill
 type SkillProps = {
     name: string;
     icon: string;
-    level?: string; // Opsional: jika ingin menambahkan label "Advanced/Basic"
 };
 
-// Kategori Software Development
-const devSkills: SkillProps[] = [
-  { name: 'JavaScript (ES6+)', icon: '⚡' },
-  { name: 'Next.js / React', icon: '⚛️' },
-  { name: 'Java', icon: '☕' },
-  { name: 'Front-End Arch', icon: '🎨' },
-  { name: 'Back-End Services', icon: '⚙️' },
-  { name: 'Android Studio', icon: '📱' },
+const skills: SkillProps[] = [
+    { name: 'HTML', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+    { name: 'CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    { name: 'JavaScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+    { name: 'TypeScript', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+    { name: 'React', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+    { name: 'Next.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg' },
+    { name: 'Node.js', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' },
+    { name: 'Tailwind CSS', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg' },
+    { name: 'Python', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+    { name: 'Java', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+    { name: 'MySQL', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+    { name: 'Git', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
 ];
 
-// Kategori Data & Machine Learning
-const dataSkills: SkillProps[] = [
-  { name: 'Python', icon: '🐍' },
-  { name: 'Machine Learning', icon: '🧠' },
-  { name: 'Data Science', icon: '📊' },
-  { name: 'SQL & Databases', icon: '🗃️' },
-  { name: 'Data Visualization', icon: '📈' },
-  { name: 'Big Data Concepts', icon: '☁️' },
-];
-
-// Komponen Kartu Skill Baru
-const SkillCard = ({ name, icon, delay }: { name: string, icon: string, delay: number }) => (
-    <div 
-        className="group relative flex items-center p-4 bg-white rounded-2xl border border-gray-100 transition-all duration-300 hover:border-red-200 hover:shadow-lg hover:shadow-red-900/5 hover:-translate-y-1"
+const SkillCard = ({ name, icon, delay }: { name: string; icon: string; delay: number }) => (
+    <div
+        className="group relative flex items-center justify-center rounded-3xl border border-neutral-200 bg-white/85 p-5 shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:border-neutral-300 hover:shadow-[0_18px_40px_rgba(0,0,0,0.12)] focus-within:-translate-y-1 focus-within:border-neutral-300 focus-within:shadow-[0_18px_40px_rgba(0,0,0,0.12)]"
         data-aos="fade-up"
         data-aos-delay={delay}
     >
-        {/* Dekorasi Background Hover (Glow halus) */}
-        <div className="absolute inset-0 bg-linear-to-r from-red-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl" />
-
-        {/* Icon Wrapper */}
-        <div className="relative z-10 shrink-0 w-12 h-12 flex items-center justify-center bg-gray-50 rounded-xl text-2xl group-hover:scale-110 group-hover:bg-white transition-transform duration-300 shadow-sm">
-            {icon}
-        </div>
-
-        {/* Text */}
-        <div className="relative z-10 ml-4">
-            <h4 className="text-gray-900 font-bold text-base group-hover:text-red-600 transition-colors duration-300">
-                {name}
-            </h4>
-        </div>
+        <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-within:opacity-100 shadow-[0_0_28px_rgba(0,0,0,0.16)]" />
+        <Image
+            src={icon}
+            alt={name}
+            width={48}
+            height={48}
+            className="relative z-10 h-12 w-12 object-contain transition-transform duration-300 ease-out group-hover:scale-110 group-focus-visible:scale-110"
+            loading="lazy"
+        />
+        <span className="sr-only">{name}</span>
     </div>
 );
 
 export default function SkillsSection() {
   return (
-    <section id="skills" className="py-24 relative bg-white overflow-hidden">
-        {/* Background Decoration (Optional: titik-titik halus) */}
-        <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[16px_16px]" />
+        <section id="skills" className="relative overflow-hidden py-24 bg-white">
+            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[18px_18px]" />
 
-        <div className="container mx-auto px-6 relative z-10">
-            
-            {/* Section Header */}
-            <div className="text-center mb-20">
-                <span className="text-red-600 font-semibold tracking-wider uppercase text-sm mb-2 block" data-aos="fade-up">
-                    My Arsenal
-                </span>
-                <h2 
-                    className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-6 tracking-tight"
-                    data-aos="fade-down"
-                    data-aos-delay="100"
-                >
-                    Tech Stack & Tools
-                </h2>
-                <p 
-                    className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed"
-                    data-aos="fade-up"
-                    data-aos-delay="200"
-                >
-                    A curated list of technologies I use to build performant web applications and robust AI models.
-                </p>
-            </div>
-
-            {/* Grid Layout */}
-            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
-                
-                {/* Kolom 1: Software Development */}
-                <div data-aos="fade-right" data-aos-delay="300">
-                    <div className="flex items-center mb-8">
-                        <div className="w-10 h-1 bg-red-600 rounded-full mr-4"></div>
-                        <h3 className="text-2xl font-bold text-gray-900">Software Engineering</h3>
-                    </div>
-                    
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {devSkills.map((skill, index) => (
-                            <SkillCard 
-                                key={index} 
-                                name={skill.name} 
-                                icon={skill.icon} 
-                                delay={index * 100} 
-                            />
-                        ))}
-                    </div>
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="text-center mb-16">
+                    <span className="text-sm font-medium uppercase tracking-[0.35em] text-neutral-500 block" data-aos="fade-up">
+                        My Arsenal
+                    </span>
+                    <h2
+                        className="mt-4 text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900"
+                        data-aos="fade-down"
+                        data-aos-delay="100"
+                    >
+                        Tech Stack & Tools
+                    </h2>
+                    <p
+                        className="mx-auto mt-5 max-w-2xl text-base md:text-lg leading-relaxed text-neutral-600"
+                        data-aos="fade-up"
+                        data-aos-delay="200"
+                    >
+                        A focused set of technologies I use to build responsive web experiences and practical AI workflows.
+                    </p>
                 </div>
 
-                {/* Kolom 2: Data & AI */}
-                <div data-aos="fade-left" data-aos-delay="400">
-                    <div className="flex items-center mb-8 lg:justify-end">
-                        <h3 className="text-2xl font-bold text-gray-900 mr-4">Data Science & AI</h3>
-                        <div className="w-10 h-1 bg-blue-600 rounded-full"></div>
-                    </div>
-
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                        {dataSkills.map((skill, index) => (
-                            <SkillCard 
-                                key={index} 
-                                name={skill.name} 
-                                icon={skill.icon} 
-                                delay={index * 100} 
-                            />
-                        ))}
-                    </div>
+                <div className="mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                    {skills.map((skill, index) => (
+                        <SkillCard key={skill.name} name={skill.name} icon={skill.icon} delay={index * 70} />
+                    ))}
                 </div>
-
             </div>
-        </div>
     </section>
   );
 }
