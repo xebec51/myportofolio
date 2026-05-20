@@ -59,5 +59,15 @@ export const projects: Project[] = [
     techStack: ["Python", "Scikit-Learn", "MLflow", "DagsHub", "GitHub Actions", "Docker", "Prometheus", "Grafana"],
     githubLink: "https://github.com/xebec51/Eksperimen_SML_Rinaldi",
     liveDemoLink: "https://github.com/xebec51/heart-disease-monitoring-rinaldi" 
+  },
+  {
+    id: 6,
+    title: "Machine Learning: Clustering & Classification",
+    shortDescription: "A machine learning project featuring data clustering and classification models using Decision Tree, Random Forest, and PCA.",
+    description: "A comprehensive machine learning project for Dicoding's final submission. It features data clustering and classification models using algorithms like Decision Tree, Random Forest, and PCA.",
+    image: "/assets/dicoding-ml.png", 
+    techStack: ["Python", "Jupyter Notebook", "Scikit-Learn", "Pandas", "Machine Learning"],
+    githubLink: "https://github.com/xebec51/dicoding-ml-project-clustering-classification",
+    liveDemoLink: "#"
   }
 ];
