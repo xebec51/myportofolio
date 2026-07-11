@@ -8,27 +8,32 @@ import { motion } from 'framer-motion';
 const navigationLinks = [
     { 
         name: 'Home', 
-        href: '#home', 
+        id: 'home',
+        href: '/#home',
         path: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" 
     },
     { 
         name: 'About', 
-        href: '#about', 
+        id: 'about',
+        href: '/#about',
         path: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" 
     },
     { 
         name: 'Tech Stack', 
-        href: '#skills', 
+        id: 'skills',
+        href: '/#skills',
         path: "M13 10V3L4 14h7v7l9-11h-7z" 
     },
     {
         name: 'Certificates',
-        href: '#certifications',
+        id: 'certifications',
+        href: '/#certifications',
         path: "M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"
     },
     { 
         name: 'Projects', 
-        href: '#projects', 
+        id: 'projects',
+        href: '/#projects',
         path: "M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" 
     },
 ];
@@ -48,7 +53,7 @@ export default function Header() {
             const scrollPosition = window.scrollY + 150; // Offset agar highlight berubah sebelum mencapai top persis
 
             for (const link of navigationLinks) {
-                const sectionId = link.href.substring(1);
+                const sectionId = link.id;
                 const element = document.getElementById(sectionId);
                 
                 if (element) {
@@ -72,12 +77,12 @@ export default function Header() {
 
     // Helper untuk smooth scroll manual (opsional, jika CSS scroll-behavior: smooth tidak cukup)
     const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-        e.preventDefault();
         setActiveSection(id);
         setIsMobileMenuOpen(false);
         
         const element = document.getElementById(id);
         if (element) {
+            e.preventDefault();
             const headerOffset = 80;
             const elementPosition = element.getBoundingClientRect().top;
             const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
@@ -112,12 +117,12 @@ export default function Header() {
                 {/* === NAVIGASI DESKTOP === */}
                 <nav className="hidden md:flex items-center gap-1 bg-white/50 px-2 py-1.5 rounded-full border border-gray-100/50 backdrop-blur-sm shadow-sm">
                     {navigationLinks.map((link) => {
-                        const isActive = activeSection === link.href.substring(1);
+                        const isActive = activeSection === link.id;
                         return (
-                            <a 
+                            <Link
                                 key={link.name} 
                                 href={link.href} 
-                                onClick={(e) => handleNavClick(e, link.href.substring(1))}
+                                onClick={(e) => handleNavClick(e, link.id)}
                                 className={`relative px-4 py-2 text-sm font-medium transition-colors duration-300 rounded-full flex items-center gap-2 ${
                                     isActive ? 'text-red-600' : 'text-gray-600 hover:text-red-600'
                                 }`}
@@ -147,7 +152,7 @@ export default function Header() {
                                     )}
                                     {link.name}
                                 </span>
-                            </a>
+                            </Link>
                         );
                     })}
                 </nav>
@@ -156,7 +161,7 @@ export default function Header() {
                 <div className="flex items-center gap-4">
                     <div className="hidden md:block">
                         <Link 
-                            href="#contact" 
+                            href="/#contact"
                             onClick={(e) => handleNavClick(e, 'contact')}
                             className="flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-white bg-gray-900 rounded-full hover:bg-red-600 hover:shadow-lg hover:shadow-red-600/20 hover:-translate-y-0.5 transition-all duration-300"
                         >
@@ -168,8 +173,12 @@ export default function Header() {
                     {/* Hamburger Button */}
                     <div className="md:hidden">
                         <button 
+                            type="button"
                             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                            className="text-gray-700 hover:text-red-600 focus:outline-none p-2 transition-colors"
+                            aria-label={isMobileMenuOpen ? 'Tutup menu navigasi' : 'Buka menu navigasi'}
+                            aria-expanded={isMobileMenuOpen}
+                            aria-controls="mobile-navigation"
+                            className="text-gray-700 hover:text-red-600 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2 rounded-lg p-2 transition-colors"
                         >
                             {isMobileMenuOpen ? (
                                 <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path></svg>
@@ -182,15 +191,15 @@ export default function Header() {
             </div>
 
             {/* === MENU MOBILE (DROPDOWN) === */}
-            <div className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-xl transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
+            <div id="mobile-navigation" className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-gray-100 shadow-xl transition-all duration-300 ease-in-out ${isMobileMenuOpen ? 'opacity-100 visible translate-y-0' : 'opacity-0 invisible -translate-y-2'}`}>
                 <div className="p-4 flex flex-col space-y-2">
                     {navigationLinks.map((link) => {
-                        const isActive = activeSection === link.href.substring(1);
+                        const isActive = activeSection === link.id;
                         return (
-                            <a 
+                            <Link
                                 key={link.name} 
                                 href={link.href}
-                                onClick={(e) => handleNavClick(e, link.href.substring(1))}
+                                onClick={(e) => handleNavClick(e, link.id)}
                                 className={`flex items-center gap-3 px-4 py-3 rounded-xl font-medium transition-all ${
                                     isActive 
                                         ? 'bg-red-50 text-red-600 shadow-sm' 
@@ -204,18 +213,18 @@ export default function Header() {
                                 {isActive && (
                                     <span className="ml-auto w-2 h-2 bg-red-600 rounded-full"></span>
                                 )}
-                            </a>
+                            </Link>
                         );
                     })}
                     <div className="pt-2 border-t border-gray-100 mt-2">
-                        <a 
-                            href="#contact"
+                        <Link
+                            href="/#contact"
                             onClick={(e) => handleNavClick(e, 'contact')}
                             className="flex items-center justify-center gap-2 w-full px-4 py-3 mt-2 text-sm font-bold text-white bg-red-600 rounded-xl hover:bg-red-700 active:scale-95 transition-all shadow-lg shadow-red-600/20"
                         >
                             Contact Me
                             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

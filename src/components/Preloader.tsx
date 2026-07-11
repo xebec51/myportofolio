@@ -27,6 +27,8 @@ export default function Preloader() {
 
     return (
         <div 
+            role="status"
+            aria-label="Memuat portfolio Naldi"
             className={`fixed inset-0 z-9999 flex items-center justify-center bg-gray-900 transition-opacity duration-500 ease-out ${fade ? 'opacity-0' : 'opacity-100'}`}
         >
             <div className="flex flex-col items-center justify-center">
@@ -46,9 +48,9 @@ export default function Preloader() {
                 </div>
 
                 {/* Teks Loading */}
-                <h1 className="text-2xl font-bold text-white tracking-[0.2em] animate-pulse">
+                <p className="text-2xl font-bold text-white tracking-[0.2em] animate-pulse">
                     NALDI<span className="text-red-600">.</span>
-                </h1>
+                </p>
                 
                 <p className="text-gray-400 text-xs mt-2 tracking-wider uppercase">
                     Loading Portfolio

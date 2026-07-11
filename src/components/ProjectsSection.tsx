@@ -1,7 +1,7 @@
 // src/components/ProjectsSection.tsx
 "use client";
 
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -9,11 +9,58 @@ import { projects, Project } from '../data/projects';
 
 export default function ProjectsSection() {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+    const modalRef = useRef<HTMLDivElement>(null);
+    const closeButtonRef = useRef<HTMLButtonElement>(null);
+    const previouslyFocusedElementRef = useRef<HTMLElement | null>(null);
 
     // Batasi jumlah awal tampilan
     const INITIAL_COUNT = 6;
     const [visibleCount, setVisibleCount] = useState(INITIAL_COUNT);
     const isAllVisible = visibleCount >= projects.length;
+
+    useEffect(() => {
+        if (!selectedProject) return;
+
+        const previousOverflow = document.body.style.overflow;
+        previouslyFocusedElementRef.current = document.activeElement as HTMLElement | null;
+
+        const handleKeyDown = (event: KeyboardEvent) => {
+            if (event.key === 'Escape') {
+                setSelectedProject(null);
+                return;
+            }
+
+            if (event.key === 'Tab' && modalRef.current) {
+                const focusableElements = Array.from(
+                    modalRef.current.querySelectorAll<HTMLElement>(
+                        'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])'
+                    )
+                );
+                const firstElement = focusableElements[0];
+                const lastElement = focusableElements[focusableElements.length - 1];
+
+                if (!firstElement || !lastElement) {
+                    event.preventDefault();
+                } else if (event.shiftKey && document.activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                } else if (!event.shiftKey && document.activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
+            }
+        };
+
+        document.body.style.overflow = 'hidden';
+        document.addEventListener('keydown', handleKeyDown);
+        closeButtonRef.current?.focus();
+
+        return () => {
+            document.body.style.overflow = previousOverflow;
+            document.removeEventListener('keydown', handleKeyDown);
+            previouslyFocusedElementRef.current?.focus();
+        };
+    }, [selectedProject]);
 
     const handleToggleView = () => {
         if (isAllVisible) {
@@ -87,15 +134,21 @@ export default function ProjectsSection() {
                                     />
                                     
                                     {/* Overlay Action Icon (Hidden on mobile for cleaner look) */}
-                                    <div className="hidden md:flex absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center">
-                                        <motion.span 
+                                    <div className="hidden md:flex absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 transition-opacity duration-300 items-center justify-center">
+                                        <motion.button
+                                            type="button"
+                                            aria-label={`Buka detail singkat ${project.title}`}
+                                            onClick={(event) => {
+                                                event.stopPropagation();
+                                                setSelectedProject(project);
+                                            }}
                                             whileHover={{ scale: 1.1 }}
                                             whileTap={{ scale: 0.95 }}
-                                            className="bg-white text-gray-900 px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-2"
+                                            className="bg-white text-gray-900 px-4 py-2 rounded-full font-bold text-sm shadow-lg flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600 focus-visible:ring-offset-2"
                                         >
                                             View Details
                                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-                                        </motion.span>
+                                        </motion.button>
                                     </div>
                                 </div>
 
@@ -126,6 +179,15 @@ export default function ProjectsSection() {
                                             </span>
                                         )}
                                     </div>
+
+                                    <Link
+                                        href={`/projects/${project.slug}`}
+                                        onClick={(event) => event.stopPropagation()}
+                                        className="mt-4 inline-flex w-fit items-center gap-1 text-[10px] font-bold text-red-600 transition-colors hover:text-red-700 sm:text-xs md:text-sm"
+                                    >
+                                        View Case Study
+                                        <span aria-hidden="true">→</span>
+                                    </Link>
                                 </div>
                             </motion.div>
                         ))}
@@ -170,8 +232,12 @@ export default function ProjectsSection() {
                     >
                         
                         <motion.div
+                            ref={modalRef}
                             layoutId={`project-card-${selectedProject.id}`}
                             onClick={(e) => e.stopPropagation()}
+                            role="dialog"
+                            aria-modal="true"
+                            aria-labelledby={`project-modal-title-${selectedProject.id}`}
                             className="w-full max-w-4xl bg-white rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl relative flex flex-col max-h-[90vh]"
                             transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
                         >
@@ -186,7 +252,10 @@ export default function ProjectsSection() {
                                         className="object-cover"
                                     />
                                     <button 
+                                        ref={closeButtonRef}
+                                        type="button"
                                         onClick={() => setSelectedProject(null)}
+                                        aria-label="Tutup detail proyek"
                                         className="absolute top-3 right-3 md:top-4 md:right-4 p-2 bg-black/50 backdrop-blur-md rounded-full text-white hover:bg-black/70 transition-colors z-20"
                                     >
                                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
@@ -195,7 +264,10 @@ export default function ProjectsSection() {
 
                                 {/* Modal Content */}
                                 <div className="p-6 md:p-8">
-                                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                                    <h3
+                                        id={`project-modal-title-${selectedProject.id}`}
+                                        className="text-2xl md:text-3xl font-bold text-gray-900 mb-4"
+                                    >
                                         {selectedProject.title}
                                     </h3>
 
@@ -227,20 +299,25 @@ export default function ProjectsSection() {
                                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                                     Source Code
                                 </Link>
-                                <Link 
-                                    href={selectedProject.liveDemoLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className={`flex-1 flex items-center justify-center gap-2 px-6 py-3 border-2 rounded-xl font-bold transition-all active:scale-[0.98] text-sm md:text-base ${
-                                        selectedProject.liveDemoLink !== "#" 
-                                        ? "border-red-600 text-red-600 hover:bg-red-50" 
-                                        : "border-gray-200 text-gray-400 cursor-not-allowed hover:bg-gray-50"
-                                    }`}
-                                    onClick={(e) => selectedProject.liveDemoLink === "#" && e.preventDefault()}
-                                >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                                    Live Demo
-                                </Link>
+                                {selectedProject.liveDemoLink !== "#" ? (
+                                    <Link
+                                        href={selectedProject.liveDemoLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border-2 rounded-xl font-bold transition-all active:scale-[0.98] text-sm md:text-base border-red-600 text-red-600 hover:bg-red-50"
+                                    >
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                        Live Demo
+                                    </Link>
+                                ) : (
+                                    <span
+                                        aria-disabled="true"
+                                        className="flex-1 flex items-center justify-center gap-2 px-6 py-3 border-2 rounded-xl font-bold text-sm md:text-base border-gray-200 text-gray-400 cursor-not-allowed"
+                                    >
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                                        Live Demo Tidak Tersedia
+                                    </span>
+                                )}
                             </div>
                         </motion.div>
                     </motion.div>

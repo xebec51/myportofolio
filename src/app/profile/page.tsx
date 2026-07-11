@@ -1,8 +1,44 @@
 // src/app/profile/page.tsx
 import React from 'react';
-import Image from 'next/image';
+import type { Metadata } from 'next';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+
+const profileTitle = "Profil Muh. Rinaldi Ruslan";
+const profileDescription =
+    "Profil lengkap Muh. Rinaldi Ruslan: pendidikan, pengalaman, keahlian full stack development, machine learning, computer vision, dan proyek teknologi.";
+
+export const metadata: Metadata = {
+    title: {
+        absolute: profileTitle,
+    },
+    description: profileDescription,
+    alternates: {
+        canonical: "/profile",
+    },
+    openGraph: {
+        title: profileTitle,
+        description: profileDescription,
+        url: "/profile",
+        siteName: "Naldi Portfolio",
+        locale: "id_ID",
+        type: "profile",
+        images: [
+            {
+                url: "/profile.jpg",
+                width: 736,
+                height: 736,
+                alt: "Profil Muh. Rinaldi Ruslan",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: profileTitle,
+        description: profileDescription,
+        images: ["/profile.jpg"],
+    },
+};
 
 // Data Pendidikan
 const education = [
@@ -10,15 +46,13 @@ const education = [
         institution: "Universitas Hasanuddin",
         degree: "S1 Sistem Informasi",
         year: "2021 - Sekarang",
-        description: "IPK 3.89. Aktif dalam organisasi kemahasiswaan dan asisten laboratorium pemrograman.",
-        logo: "🎓"
+        description: "IPK 3.89. Aktif dalam organisasi kemahasiswaan dan asisten laboratorium pemrograman."
     },
     {
-        institution: "SMA Negeri [Nama SMA Anda]",
-        degree: "Jurusan IPA",
-        year: "2018 - 2021",
-        description: "Lulus dengan predikat memuaskan. Fokus pada mata pelajaran eksakta.",
-        logo: "🏫"
+        institution: "PPTQ Al-Imam Ashim Makassar",
+        degree: "Pendidikan Pesantren, MTs TQ & MA TQ",
+        year: "2016 - 2022",
+        description: "Menempuh pendidikan enam tahun di lingkungan pesantren, mencakup jenjang MTs TQ Al-Imam Ashim Makassar dan MA TQ Al-Imam Ashim Makassar."
     }
 ];
 
@@ -49,9 +83,9 @@ export default function ProfilePage() {
                     
                     {/* Header Profil */}
                     <div className="text-center mb-16" data-aos="fade-down">
-                        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Profil Lengkap</h1>
+                        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Profil Muh. Rinaldi Ruslan</h1>
                         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            Perjalanan akademis dan pengalaman profesional yang membentuk keahlian saya.
+                            Perjalanan akademis dan pengalaman profesional Muh. Rinaldi Ruslan sebagai Full Stack Developer dan Machine Learning Engineer dari Makassar, Indonesia.
                         </p>
                     </div>
 
