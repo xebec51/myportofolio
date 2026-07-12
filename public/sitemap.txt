@@ -1,0 +1,8 @@
+https://naldiporto.vercel.app/
+https://naldiporto.vercel.app/profile
+https://naldiporto.vercel.app/projects/sibisee-real-time-sibi-translator
+https://naldiporto.vercel.app/projects/eatosphere-global-restaurant-catalog
+https://naldiporto.vercel.app/projects/gesturelearn-ai-hand-recognition
+https://naldiporto.vercel.app/projects/kanhas-smart-canteen-app
+https://naldiporto.vercel.app/projects/heart-disease-prediction-mlops
+https://naldiporto.vercel.app/projects/machine-learning-clustering-classification
