@@ -37,18 +37,18 @@ const skills: SkillProps[] = [
 
 export default function SkillsSection() {
     return (
-        <section id="skills" className="relative overflow-visible py-16 bg-white">
-            <div className="absolute inset-0 opacity-[0.03] bg-[radial-gradient(#000_1px,transparent_1px)] bg-size-[18px_18px]" />
+        <section id="skills" className="relative overflow-visible py-16 bg-white dark:bg-gray-950">
+            <div className="absolute inset-0 opacity-[0.03] dark:opacity-[0.06] bg-[radial-gradient(#000_1px,transparent_1px)] dark:bg-[radial-gradient(#fff_1px,transparent_1px)] bg-size-[18px_18px]" />
 
             <div className="container mx-auto px-6 relative z-10">
                 <div className="text-center mb-8">
-                    <span className="text-sm font-medium uppercase tracking-[0.35em] text-neutral-500 block" data-aos="fade-up">
+                    <span className="text-sm font-medium uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400 block" data-aos="fade-up">
                         My Arsenal
                     </span>
-                    <h2 className="mt-2 text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900" data-aos="fade-down" data-aos-delay="100">
+                    <h2 className="mt-2 text-4xl md:text-5xl font-semibold tracking-tight text-neutral-900 dark:text-white" data-aos="fade-down" data-aos-delay="100">
                         Tech Stack & Tools
                     </h2>
-                    <p className="mx-auto mt-3 max-w-2xl text-base md:text-lg leading-relaxed text-neutral-600" data-aos="fade-up" data-aos-delay="200">
+                    <p className="mx-auto mt-3 max-w-2xl text-base md:text-lg leading-relaxed text-neutral-600 dark:text-neutral-400" data-aos="fade-up" data-aos-delay="200">
                         A focused set of technologies I use to build responsive web experiences and practical AI workflows.
                     </p>
                 </div>

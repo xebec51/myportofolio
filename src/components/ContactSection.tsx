@@ -95,8 +95,8 @@ export default function ContactSection() {
     };
 
     return (
-        <section id="contact" className="relative overflow-hidden bg-white py-24 md:py-32">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.04),transparent_42%)]" />
+        <section id="contact" className="relative overflow-hidden bg-white dark:bg-gray-950 py-24 md:py-32">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,0,0,0.04),transparent_42%)] dark:bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_42%)]" />
 
             <div className="container relative z-10 mx-auto px-6">
                 <motion.div
@@ -106,13 +106,13 @@ export default function ContactSection() {
                     viewport={{ once: true }}
                     className="mx-auto mb-14 max-w-3xl text-center"
                 >
-                    <span className="mb-4 block text-sm font-medium uppercase tracking-[0.35em] text-neutral-500">
+                    <span className="mb-4 block text-sm font-medium uppercase tracking-[0.35em] text-neutral-500 dark:text-neutral-400">
                         Contact
                     </span>
-                    <h2 className="text-4xl font-semibold tracking-tight text-neutral-900 md:text-5xl">
+                    <h2 className="text-4xl font-semibold tracking-tight text-neutral-900 dark:text-white md:text-5xl">
                         Let&apos;s build something together.
                     </h2>
-                    <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-neutral-600 md:text-lg">
+                    <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-neutral-600 dark:text-neutral-400 md:text-lg">
                         Send a quick message, share your idea, and I&apos;ll get back with a clear next step.
                     </p>
                 </motion.div>
@@ -123,47 +123,47 @@ export default function ContactSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.55, delay: 0.1 }}
                         viewport={{ once: true }}
-                        className="rounded-4xl border border-neutral-200 bg-white p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:p-8 h-full"
+                        className="rounded-4xl border border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-900 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.08)] md:p-8 h-full"
                     >
-                        <h3 className="text-lg font-semibold text-neutral-900 mb-4">Contact Me</h3>
+                        <h3 className="text-lg font-semibold text-neutral-900 dark:text-white mb-4">Contact Me</h3>
                         <form className="space-y-5 max-w-full mx-auto" onSubmit={handleSubmit}>
                             <div className="grid gap-5 md:grid-cols-2">
                                 <label className="block">
-                                    <span className="mb-2 block text-sm font-medium text-neutral-700">Name</span>
+                                    <span className="mb-2 block text-sm font-medium text-neutral-700 dark:text-neutral-300">Name</span>
                                     <input
                                         name="name"
                                         value={formState.name}
                                         onChange={handleChange}
                                         type="text"
                                         placeholder="Your name"
-                                        className="w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 outline-none transition-all duration-300 placeholder:text-neutral-400 focus:border-neutral-400 focus:shadow-[0_0_0_4px_rgba(0,0,0,0.06)]"
+                                        className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-3 text-neutral-900 dark:text-white outline-none transition-all duration-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-neutral-400 dark:focus:border-neutral-500 focus:shadow-[0_0_0_4px_rgba(0,0,0,0.06)] dark:focus:shadow-[0_0_0_4px_rgba(255,255,255,0.06)]"
                                         required
                                     />
                                 </label>
 
                                 <label className="block">
-                                    <span className="mb-2 block text-sm font-medium text-neutral-700">Email</span>
+                                    <span className="mb-2 block text-sm font-medium text-neutral-700 dark:text-neutral-300">Email</span>
                                     <input
                                         name="email"
                                         value={formState.email}
                                         onChange={handleChange}
                                         type="email"
                                         placeholder="you@example.com"
-                                        className="w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 outline-none transition-all duration-300 placeholder:text-neutral-400 focus:border-neutral-400 focus:shadow-[0_0_0_4px_rgba(0,0,0,0.06)]"
+                                        className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-3 text-neutral-900 dark:text-white outline-none transition-all duration-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-neutral-400 dark:focus:border-neutral-500 focus:shadow-[0_0_0_4px_rgba(0,0,0,0.06)] dark:focus:shadow-[0_0_0_4px_rgba(255,255,255,0.06)]"
                                         required
                                     />
                                 </label>
                             </div>
 
                             <label className="block">
-                                <span className="mb-2 block text-sm font-medium text-neutral-700">Message</span>
+                                <span className="mb-2 block text-sm font-medium text-neutral-700 dark:text-neutral-300">Message</span>
                                 <textarea
                                     name="message"
                                     value={formState.message}
                                     onChange={handleChange}
                                     rows={6}
                                     placeholder="Tell me about your project..."
-                                    className="w-full rounded-2xl border border-neutral-200 bg-white px-4 py-3 text-neutral-900 outline-none transition-all duration-300 placeholder:text-neutral-400 focus:border-neutral-400 focus:shadow-[0_0_0_4px_rgba(0,0,0,0.06)]"
+                                    className="w-full rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-3 text-neutral-900 dark:text-white outline-none transition-all duration-300 placeholder:text-neutral-400 dark:placeholder:text-neutral-500 focus:border-neutral-400 dark:focus:border-neutral-500 focus:shadow-[0_0_0_4px_rgba(0,0,0,0.06)] dark:focus:shadow-[0_0_0_4px_rgba(255,255,255,0.06)]"
                                     required
                                 />
                             </label>
@@ -173,13 +173,13 @@ export default function ContactSection() {
                                     whileHover={{ scale: 1.02 }}
                                     whileTap={{ scale: 0.98 }}
                                     type="submit"
-                                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-900 bg-neutral-900 px-6 py-3 text-sm font-semibold text-white transition-all duration-300 hover:shadow-[0_16px_30px_rgba(0,0,0,0.18)]"
+                                    className="inline-flex items-center justify-center gap-2 rounded-2xl border border-neutral-900 dark:border-white bg-neutral-900 dark:bg-white px-6 py-3 text-sm font-semibold text-white dark:text-neutral-900 transition-all duration-300 hover:shadow-[0_16px_30px_rgba(0,0,0,0.18)]"
                                 >
                                     Send Message
                                     <span aria-hidden="true">→</span>
                                 </motion.button>
 
-                                <Link href={mailtoLink} className="inline-flex items-center justify-center rounded-2xl border border-neutral-200 px-6 py-3 text-sm font-medium text-neutral-700 transition-all duration-300 hover:border-neutral-400 hover:bg-neutral-50">
+                                <Link href={mailtoLink} className="inline-flex items-center justify-center rounded-2xl border border-neutral-200 dark:border-neutral-700 px-6 py-3 text-sm font-medium text-neutral-700 dark:text-neutral-300 transition-all duration-300 hover:border-neutral-400 dark:hover:border-neutral-500 hover:bg-neutral-50 dark:hover:bg-neutral-800">
                                     Use email app instead
                                 </Link>
                             </div>
@@ -191,11 +191,11 @@ export default function ContactSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.55, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="space-y-6 rounded-4xl border border-neutral-200 bg-neutral-50 p-6 md:p-8 h-full flex flex-col justify-between"
+                        className="space-y-6 rounded-4xl border border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900 p-6 md:p-8 h-full flex flex-col justify-between"
                     >
                         <div>
-                            <h3 className="text-lg font-semibold text-neutral-900">Contact info</h3>
-                            <p className="mt-2 text-sm leading-relaxed text-neutral-600">
+                            <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">Contact info</h3>
+                            <p className="mt-2 text-sm leading-relaxed text-neutral-600 dark:text-neutral-400">
                                 Everything important is grouped here so it&apos;s easy to reach me from whichever channel works best.
                             </p>
                         </div>
@@ -203,31 +203,31 @@ export default function ContactSection() {
                         <div className="space-y-3">
                             <Link
                                 href={mailtoLink}
-                                className="flex items-center justify-between rounded-2xl border border-neutral-200 bg-white px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)]"
+                                className="flex items-center justify-between rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 dark:hover:border-neutral-500 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)]"
                             >
                                 <div>
-                                    <p className="text-sm font-medium text-neutral-500">Email</p>
-                                    <p className="text-sm font-semibold text-neutral-900">{contactInfo.email}</p>
+                                    <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">Email</p>
+                                    <p className="text-sm font-semibold text-neutral-900 dark:text-white">{contactInfo.email}</p>
                                 </div>
-                                <span className="text-sm text-neutral-500">Open</span>
+                                <span className="text-sm text-neutral-500 dark:text-neutral-400">Open</span>
                             </Link>
 
                             <Link
                                 href={whatsappLink}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex items-center justify-between rounded-2xl border border-neutral-200 bg-white px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)]"
+                                className="flex items-center justify-between rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 dark:hover:border-neutral-500 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)]"
                             >
                                 <div>
-                                    <p className="text-sm font-medium text-neutral-500">WhatsApp</p>
-                                    <p className="text-sm font-semibold text-neutral-900">Quick response</p>
+                                    <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400">WhatsApp</p>
+                                    <p className="text-sm font-semibold text-neutral-900 dark:text-white">Quick response</p>
                                 </div>
-                                <span className="text-sm text-neutral-500">Chat</span>
+                                <span className="text-sm text-neutral-500 dark:text-neutral-400">Chat</span>
                             </Link>
                         </div>
 
                         <div>
-                            <h3 className="text-lg font-semibold text-neutral-900">Social links</h3>
+                            <h3 className="text-lg font-semibold text-neutral-900 dark:text-white">Social links</h3>
                             <div className="mt-4 grid gap-3 grid-cols-1 sm:grid-cols-2">
                                 {socialLinks.map((social, index) => (
                                     <motion.div
@@ -241,15 +241,15 @@ export default function ContactSection() {
                                             href={social.href}
                                             target="_blank"
                                             rel="noopener noreferrer"
-                                            className="flex items-center gap-3 rounded-2xl border border-neutral-200 bg-white px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] w-full"
+                                            className="flex items-center gap-3 rounded-2xl border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 px-4 py-3 transition-all duration-300 hover:-translate-y-0.5 hover:border-neutral-400 dark:hover:border-neutral-500 hover:shadow-[0_14px_30px_rgba(0,0,0,0.08)] w-full"
                                             aria-label={social.name}
                                         >
-                                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 bg-neutral-50 text-neutral-700 transition-transform duration-300 group-hover:scale-105">
+                                            <span className="flex h-10 w-10 items-center justify-center rounded-full border border-neutral-200 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-700 text-neutral-700 dark:text-neutral-200 transition-transform duration-300 group-hover:scale-105">
                                                 <ContactIcon path={social.iconPath} />
                                             </span>
                                             <div>
-                                                <p className="text-sm font-semibold text-neutral-900">{social.name}</p>
-                                                <p className="text-xs text-neutral-500">Open profile</p>
+                                                <p className="text-sm font-semibold text-neutral-900 dark:text-white">{social.name}</p>
+                                                <p className="text-xs text-neutral-500 dark:text-neutral-400">Open profile</p>
                                             </div>
                                         </Link>
                                     </motion.div>

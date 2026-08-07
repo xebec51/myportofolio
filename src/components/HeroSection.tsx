@@ -74,7 +74,7 @@ export default function HeroSection() {
     };
 
     return (
-        <section id="home" className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-white">
+        <section id="home" className="relative pt-24 pb-16 lg:pt-32 lg:pb-24 overflow-hidden bg-white dark:bg-gray-950">
             <div className="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-7xl mx-auto">
                     
@@ -89,7 +89,7 @@ export default function HeroSection() {
                         {/* Greeting */}
                         <motion.h1 
                             variants={fadeDownVariants}
-                            className="text-gray-900 text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 tracking-tight leading-tight"
+                            className="text-gray-900 dark:text-white text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-extrabold mb-4 tracking-tight leading-tight"
                         >
                             Hi, I&apos;m <span className="text-red-600">Naldi</span> 
                             <motion.span 
@@ -106,15 +106,15 @@ export default function HeroSection() {
                             variants={fadeDownVariants}
                             className="h-10 lg:h-12 mb-6 flex items-center justify-center lg:justify-start w-full"
                         >
-                            <span className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-700">
-                                I&apos;m a <span className="text-gray-900 border-b-2 border-red-600">{text}</span>
+                            <span className="text-lg sm:text-xl lg:text-2xl font-semibold text-gray-700 dark:text-gray-300">
+                                I&apos;m a <span className="text-gray-900 dark:text-white border-b-2 border-red-600">{text}</span>
                                 <span className="animate-pulse text-red-600">|</span>
                             </span>
                         </motion.div>
 
                         <motion.p 
                             variants={fadeUpVariants}
-                            className="text-gray-600 text-sm sm:text-base lg:text-lg mb-8 max-w-xl leading-relaxed px-4 lg:px-0"
+                            className="text-gray-600 dark:text-gray-400 text-sm sm:text-base lg:text-lg mb-8 max-w-xl leading-relaxed px-4 lg:px-0"
                         >
                             I&apos;m Muh. Rinaldi Ruslan, a Full Stack Developer and Machine Learning Engineer from Makassar, Indonesia, crafting robust web applications and intelligent ML models that turn complex problems into scalable solutions.
                         </motion.p>
@@ -124,7 +124,7 @@ export default function HeroSection() {
                             variants={fadeUpVariants}
                             className="flex flex-col sm:flex-row items-center gap-3 mb-10"
                         >
-                            <span className="text-gray-500 font-medium text-xs sm:text-sm uppercase tracking-wider">Follow me:</span>
+                            <span className="text-gray-500 dark:text-gray-400 font-medium text-xs sm:text-sm uppercase tracking-wider">Follow me:</span>
                             <div className="flex gap-3">
                                 <SocialButton label="GitHub" href="https://github.com/xebec51" iconPath="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 <SocialButton label="LinkedIn" href="https://www.linkedin.com/in/rinaldiruslan/" iconPath="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
@@ -140,12 +140,12 @@ export default function HeroSection() {
                             className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto mb-10"
                         >
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                                <Link href="#projects" className="w-full flex items-center justify-center px-8 py-3.5 text-sm font-bold text-white bg-gray-900 rounded-lg hover:bg-red-600 transition-colors duration-300 shadow-lg">
+                                <Link href="#projects" className="w-full flex items-center justify-center px-8 py-3.5 text-sm font-bold text-white bg-gray-900 dark:bg-red-600 rounded-lg hover:bg-red-600 dark:hover:bg-red-500 transition-colors duration-300 shadow-lg">
                                     Lihat Proyek
                                 </Link>
                             </motion.div>
                             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="w-full sm:w-auto">
-                                <Link href="/Curriculum_Vitae_Muh.Rinaldi_Ruslan.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3.5 text-sm font-bold text-gray-900 bg-white border-2 border-gray-200 rounded-lg hover:border-red-600 hover:text-red-600 transition-colors duration-300 shadow-sm">
+                                <Link href="/Curriculum_Vitae_Muh.Rinaldi_Ruslan.pdf" target="_blank" rel="noopener noreferrer" className="w-full flex items-center justify-center px-8 py-3.5 text-sm font-bold text-gray-900 dark:text-white bg-white dark:bg-gray-900 border-2 border-gray-200 dark:border-gray-700 rounded-lg hover:border-red-600 hover:text-red-600 dark:hover:text-red-500 transition-colors duration-300 shadow-sm">
                                     Unduh CV
                                 </Link>
                             </motion.div>
@@ -153,7 +153,7 @@ export default function HeroSection() {
 
                         {/* Quick Stats Section */}
                         <motion.div variants={fadeUpVariants} className="w-full max-w-2xl">
-                             <h2 className="flex items-center gap-2 text-sm sm:text-base font-semibold mb-5 text-gray-800 justify-center lg:justify-start">
+                             <h2 className="flex items-center gap-2 text-sm sm:text-base font-semibold mb-5 text-gray-800 dark:text-gray-200 justify-center lg:justify-start">
                                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                                 </svg>
@@ -206,13 +206,14 @@ export default function HeroSection() {
                                     repeat: Infinity, 
                                     ease: "easeInOut" 
                                 }}
-                                className="relative w-60 h-60 sm:w-[280px] sm:h-[280px] lg:w-[340px] lg:h-[340px] rounded-full overflow-hidden border-4 border-white shadow-2xl z-10 cursor-pointer"
+                                className="relative w-60 h-60 sm:w-[280px] sm:h-[280px] lg:w-[340px] lg:h-[340px] rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl z-10 cursor-pointer"
                             >
-                                <Image 
-                                    src="/profile.jpg" 
+                                <Image
+                                    src="/profile.jpg"
                                     alt="Muh. Rinaldi Ruslan (Naldi), Full Stack Developer dan Machine Learning Engineer"
                                     fill
                                     className="object-cover"
+                                    sizes="(max-width: 640px) 240px, (max-width: 1024px) 280px, 340px"
                                     priority
                                 />
                             </motion.div>
@@ -258,7 +259,7 @@ const SocialButton = ({ label, href, iconPath }: { label: string, href: string, 
         aria-label={`Kunjungi ${label} Muh. Rinaldi Ruslan`}
         whileHover={{ y: -3 }}
         whileTap={{ scale: 0.95 }}
-        className="p-2.5 bg-white border border-gray-200 hover:bg-red-50 hover:border-red-200 hover:text-red-600 rounded-lg text-gray-600 transition-colors duration-300 shadow-sm hover:shadow-md cursor-pointer inline-flex items-center justify-center"
+        className="p-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 hover:bg-red-50 dark:hover:bg-red-500/10 hover:border-red-200 dark:hover:border-red-500/40 hover:text-red-600 dark:hover:text-red-500 rounded-lg text-gray-600 dark:text-gray-300 transition-colors duration-300 shadow-sm hover:shadow-md cursor-pointer inline-flex items-center justify-center"
     >
         <svg aria-hidden="true" className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d={iconPath}/></svg>
     </motion.a>
@@ -303,7 +304,7 @@ const TechIcon = ({
             role="img"
             aria-label={label}
             tabIndex={0}
-            className="group relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-gray-100 bg-white shadow-lg transition-transform duration-300 ease-out hover:scale-110 focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
+            className="group relative flex h-12 w-12 cursor-pointer items-center justify-center rounded-full border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-lg transition-transform duration-300 ease-out hover:scale-110 focus-visible:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900 sm:h-14 sm:w-14 lg:h-16 lg:w-16"
         >
             <svg aria-hidden="true" className={`w-6 h-6 sm:w-7 sm:h-7 lg:w-9 lg:h-9 ${color}`} viewBox="0 0 24 24" fill="currentColor">
                 <path d={iconPath} />

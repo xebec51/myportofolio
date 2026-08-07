@@ -23,20 +23,11 @@ export const metadata: Metadata = {
         siteName: "Naldi Portfolio",
         locale: "id_ID",
         type: "profile",
-        images: [
-            {
-                url: "/profile.jpg",
-                width: 736,
-                height: 736,
-                alt: "Profil Muh. Rinaldi Ruslan",
-            },
-        ],
     },
     twitter: {
         card: "summary_large_image",
         title: profileTitle,
         description: profileDescription,
-        images: ["/profile.jpg"],
     },
 };
 
@@ -78,13 +69,13 @@ export default function ProfilePage() {
     return (
         <>
             <Header />
-            <main className="pt-24 pb-16 bg-gray-50 min-h-screen">
+            <main className="pt-24 pb-16 bg-gray-50 dark:bg-gray-900 min-h-screen">
                 <div className="container mx-auto px-6">
-                    
+
                     {/* Header Profil */}
                     <div className="text-center mb-16" data-aos="fade-down">
-                        <h1 className="text-4xl font-extrabold text-gray-900 mb-4">Profil Muh. Rinaldi Ruslan</h1>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">Profil Muh. Rinaldi Ruslan</h1>
+                        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
                             Perjalanan akademis dan pengalaman profesional Muh. Rinaldi Ruslan sebagai Full Stack Developer dan Machine Learning Engineer dari Makassar, Indonesia.
                         </p>
                     </div>
@@ -93,22 +84,22 @@ export default function ProfilePage() {
                         
                         {/* Kolom Kiri: Pendidikan */}
                         <div data-aos="fade-right">
-                            <h2 className="flex items-center text-2xl font-bold text-gray-900 mb-8 border-b-2 border-red-600 pb-2 w-fit">
+                            <h2 className="flex items-center text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b-2 border-red-600 pb-2 w-fit">
                                 <span className="mr-3 text-3xl">🎓</span> Riwayat Pendidikan
                             </h2>
-                            <div className="space-y-8 border-l-2 border-gray-200 ml-3 pl-8 relative">
+                            <div className="space-y-8 border-l-2 border-gray-200 dark:border-gray-700 ml-3 pl-8 relative">
                                 {education.map((edu, index) => (
                                     <div key={index} className="relative group">
                                         {/* Dot Timeline */}
-                                        <div className="absolute -left-[41px] top-0 w-6 h-6 bg-white border-4 border-red-600 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
-                                        
-                                        <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
-                                            <span className="text-xs font-bold text-red-600 bg-red-50 px-2 py-1 rounded-full mb-2 inline-block">
+                                        <div className="absolute -left-[41px] top-0 w-6 h-6 bg-white dark:bg-gray-900 border-4 border-red-600 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+
+                                        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
+                                            <span className="text-xs font-bold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 px-2 py-1 rounded-full mb-2 inline-block">
                                                 {edu.year}
                                             </span>
-                                            <h3 className="text-xl font-bold text-gray-900">{edu.institution}</h3>
-                                            <p className="text-gray-700 font-medium mb-2">{edu.degree}</p>
-                                            <p className="text-gray-600 text-sm leading-relaxed">{edu.description}</p>
+                                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">{edu.institution}</h3>
+                                            <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">{edu.degree}</p>
+                                            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{edu.description}</p>
                                         </div>
                                     </div>
                                 ))}
@@ -117,27 +108,27 @@ export default function ProfilePage() {
 
                         {/* Kolom Kanan: Pengalaman */}
                         <div data-aos="fade-left">
-                            <h2 className="flex items-center text-2xl font-bold text-gray-900 mb-8 border-b-2 border-red-600 pb-2 w-fit">
+                            <h2 className="flex items-center text-2xl font-bold text-gray-900 dark:text-white mb-8 border-b-2 border-red-600 pb-2 w-fit">
                                 <span className="mr-3 text-3xl">💼</span> Pengalaman Kerja
                             </h2>
-                            <div className="space-y-8 border-l-2 border-gray-200 ml-3 pl-8 relative">
+                            <div className="space-y-8 border-l-2 border-gray-200 dark:border-gray-700 ml-3 pl-8 relative">
                                 {experience.map((exp, index) => (
                                     <div key={index} className="relative group">
                                         {/* Dot Timeline */}
-                                        <div className="absolute -left-[41px] top-0 w-6 h-6 bg-white border-4 border-gray-900 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
-                                        
-                                        <div className="bg-white p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100">
+                                        <div className="absolute -left-[41px] top-0 w-6 h-6 bg-white dark:bg-gray-900 border-4 border-gray-900 dark:border-gray-500 rounded-full group-hover:scale-125 transition-transform duration-300"></div>
+
+                                        <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700">
                                             <div className="flex justify-between items-center mb-2">
-                                                <span className="text-xs font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                                                <span className="text-xs font-bold text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-2 py-1 rounded-full">
                                                     {exp.year}
                                                 </span>
-                                                <span className="text-xs font-semibold text-gray-400 uppercase tracking-wide">
+                                                <span className="text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wide">
                                                     {exp.type}
                                                 </span>
                                             </div>
-                                            <h3 className="text-xl font-bold text-gray-900">{exp.role}</h3>
-                                            <p className="text-gray-700 font-medium mb-2">{exp.company}</p>
-                                            <p className="text-gray-600 text-sm leading-relaxed">{exp.description}</p>
+                                            <h3 className="text-xl font-bold text-gray-900 dark:text-white">{exp.role}</h3>
+                                            <p className="text-gray-700 dark:text-gray-300 font-medium mb-2">{exp.company}</p>
+                                            <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{exp.description}</p>
                                         </div>
                                     </div>
                                 ))}

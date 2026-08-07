@@ -77,29 +77,29 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
   return (
     <>
       <Header />
-      <main className="min-h-screen bg-gray-50 pb-20 pt-28 md:pt-32">
+      <main className="min-h-screen bg-gray-50 dark:bg-gray-900 pb-20 pt-28 md:pt-32">
         <article className="container mx-auto max-w-6xl px-4 sm:px-6">
           <Link
             href="/#projects"
-            className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-gray-600 transition-colors hover:text-red-600"
+            className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-gray-600 dark:text-gray-400 transition-colors hover:text-red-600 dark:hover:text-red-500"
           >
             <span aria-hidden="true">←</span>
             Kembali ke semua proyek
           </Link>
 
           <header className="mb-10 max-w-4xl">
-            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-red-600">
+            <p className="mb-3 text-sm font-bold uppercase tracking-[0.22em] text-red-600 dark:text-red-500">
               Project Case Study
             </p>
-            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 sm:text-4xl lg:text-5xl">
+            <h1 className="text-3xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white sm:text-4xl lg:text-5xl">
               {project.title}
             </h1>
-            <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-600 md:text-lg">
+            <p className="mt-5 max-w-3xl text-base leading-relaxed text-gray-600 dark:text-gray-400 md:text-lg">
               {project.shortDescription}
             </p>
           </header>
 
-          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-gray-200 bg-gray-100 shadow-xl md:rounded-3xl">
+          <div className="relative aspect-video w-full overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700 bg-gray-100 dark:bg-gray-800 shadow-xl md:rounded-3xl">
             <Image
               src={project.image}
               alt={`Preview proyek ${project.title}`}
@@ -111,20 +111,20 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
           </div>
 
           <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_320px] lg:gap-12">
-            <section className="rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
-              <h2 className="text-2xl font-bold text-gray-900">Tentang Proyek</h2>
-              <p className="mt-4 text-base leading-relaxed text-gray-600 md:text-lg">
+            <section className="rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800 p-6 shadow-sm md:p-8">
+              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Tentang Proyek</h2>
+              <p className="mt-4 text-base leading-relaxed text-gray-600 dark:text-gray-400 md:text-lg">
                 {project.description}
               </p>
             </section>
 
-            <aside className="h-fit rounded-2xl border border-gray-100 bg-white p-6 shadow-sm md:p-8">
-              <h2 className="text-xl font-bold text-gray-900">Tech Stack</h2>
+            <aside className="h-fit rounded-2xl border border-gray-100 dark:border-gray-800 bg-white dark:bg-gray-800 p-6 shadow-sm md:p-8">
+              <h2 className="text-xl font-bold text-gray-900 dark:text-white">Tech Stack</h2>
               <ul className="mt-4 flex flex-wrap gap-2" aria-label="Teknologi yang digunakan">
                 {project.techStack.map((tech) => (
                   <li
                     key={tech}
-                    className="rounded-lg border border-red-100 bg-red-50 px-3 py-1.5 text-sm font-medium text-red-700"
+                    className="rounded-lg border border-red-100 dark:border-red-500/20 bg-red-50 dark:bg-red-500/10 px-3 py-1.5 text-sm font-medium text-red-700 dark:text-red-400"
                   >
                     {tech}
                   </li>
@@ -136,7 +136,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                   href={project.githubLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-red-600"
+                  className="inline-flex items-center justify-center gap-2 rounded-xl bg-gray-900 dark:bg-gray-700 px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-red-600"
                 >
                   Source Code
                   <span aria-hidden="true">↗</span>
@@ -147,7 +147,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                     href={project.liveDemoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-red-600 px-5 py-3 text-sm font-bold text-red-600 transition-colors hover:bg-red-50"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-red-600 px-5 py-3 text-sm font-bold text-red-600 dark:text-red-500 transition-colors hover:bg-red-50 dark:hover:bg-red-500/10"
                   >
                     Live Demo
                     <span aria-hidden="true">↗</span>
@@ -155,7 +155,7 @@ export default async function ProjectDetailPage({ params }: ProjectPageProps) {
                 ) : (
                   <span
                     aria-disabled="true"
-                    className="inline-flex cursor-not-allowed items-center justify-center rounded-xl border-2 border-gray-200 px-5 py-3 text-sm font-bold text-gray-400"
+                    className="inline-flex cursor-not-allowed items-center justify-center rounded-xl border-2 border-gray-200 dark:border-gray-700 px-5 py-3 text-sm font-bold text-gray-400 dark:text-gray-600"
                   >
                     Live Demo Tidak Tersedia
                   </span>
